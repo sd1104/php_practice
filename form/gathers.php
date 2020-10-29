@@ -1,13 +1,10 @@
 <?php
-
-  // CSRF対策：セッションにトークンを生成する
-  session_start();
-
   require 'validation.php';
+  // CSRF対策：セッションにトークンを生成する
 
+  session_start();
   // クリックジャッキング対策：被せを拒否する
   header('X-FRAME-OPTIONS:DENY');
-
   // クロスサイトスクリプティング対策：送信時文字をサニタイジングする
   function h($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -26,10 +23,7 @@
   if (!empty($_POST['btn_submit'])) {
     $pageFlag = 2;
   }
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -42,13 +36,13 @@
 
   <body>
     <?php if ($pageFlag === 0) : ?>
-    <?php
-      if(!isset($_SESSION['csrfToken'])) {
-        $csrfToken = bin2hex(random_bytes(32));
-        $_SESSION['csrfToken'] = $csrfToken;
-      }
-      $token = $_SESSION['csrfToken'];
-    ?>
+      <?php
+        if(!isset($_SESSION['csrfToken'])) {
+          $csrfToken = bin2hex(random_bytes(32));
+          $_SESSION['csrfToken'] = $csrfToken;
+        }
+        $token = $_SESSION['csrfToken'];
+      ?>
 
       <?php if(!empty($_POST['btn_confirm']) && !empty($error)) : ?>
         <ul>
@@ -97,7 +91,6 @@
 
     <?php if ($pageFlag === 1) : ?>
     <?php if ($_POST['csrf'] === $_SESSION['csrfToken']) : ?>
-
       <form method="POST" action="gathers.php">
         名前
         <?php echo h($_POST['your_name']); ?>
@@ -127,10 +120,8 @@
         お問い合わせ内容
         <?php echo h($_POST['contact']); ?>
         <br>
-
         <input type="submit" name="back" value="戻る">
         <input type="submit" name="btn_submit" value="送信する">
-
         <input type="hidden" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
         <input type="hidden" name="email" value="<?php echo h($_POST['email']); ?>">
         <input type="hidden" name="url" value="<?php echo h($_POST['url']);; ?>">
@@ -139,9 +130,9 @@
         <input type="hidden" name="contact" value="<?php echo h($_POST['contact']);; ?>">
         <input type="hidden" name="csrf" value="<?php echo h($_POST['csrf']);; ?>">
       </form>
-    <?php endif; ?>
-    <?php endif; ?>
 
+    <?php endif; ?>
+    <?php endif; ?>
 
 
     <?php if ($pageFlag === 2) : ?>
@@ -154,18 +145,5 @@
     <?php endif; ?>
     <?php endif; ?>
 
-
-
-
-
-
   </body>
-
 </html>
-
-<!-- ○form tag
-method:HTTPメソッドを指定する
-action：送信先のプログラムのURLを指定する
-
-○input tag
-name：情報が送られた際のkeyとなる名前を指定。[]があるかないかで変数か配列かまで判定 -->
