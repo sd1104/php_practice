@@ -63,10 +63,10 @@
         <input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
         <br>
         メールアドレス
-        <input type="email" name="email" value="<?php echo h($_POST['email']); ?>">
+        <input type="text" name="email" value="<?php echo h($_POST['email']); ?>">
         <br>
         ホームページ
-        <input type="url" name="url" value="<?php echo h($_POST['url']); ?>">
+        <input type="text" name="url" value="<?php echo h($_POST['url']); ?>">
         <br>
         性別
 
