@@ -46,7 +46,12 @@ if(!empty($_POST['btn_submit'])) {
 
 
 
-
+<?php if($pageFlag === 2): ?>
+  送信が完了しました。
+  <form method="POST" action="input.php">
+    <input type="submit" name="top" value="トップへ">
+  </form>
+<?php endif; ?>
 
 
 
