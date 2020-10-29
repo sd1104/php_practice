@@ -1,9 +1,19 @@
 <?php
 
 echo '<pre>';
-var_dump($_GET);
+var_dump($_POST);
 echo '</pre>';
+
+$pageFlag = 0;
+if(!empty($_POST['btn_confirm'])) {
+  $pageFlag = 1;
+}
+if(!empty($_POST['btn_submit'])) {
+  $pageFlag = 2;
+}
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -18,17 +28,23 @@ echo '</pre>';
 <body>
 
 
-  <form method="GET" action="input.php">
-    名前
-    <input type="text" name="name">
-    <input type="checkbox" name="sports[]" value="野球">野球
-    <input type="checkbox" name="sports[]" value="サッカー">サッカー
-    <input type="checkbox" name="sports[]" value="バスケ">バスケ
 
-    <input type="submit" value="送信">
-  </form>
+
+
+
+
+
+
+
+
 
 
 </body>
-
 </html>
+
+<!-- ○form tag
+method:HTTPメソッドを指定する
+action：送信先のプログラムのURLを指定する
+
+○input tag
+name：情報が送られた際のkeyとなる名前を指定。[]があるかないかで変数か配列かまで判定 -->
