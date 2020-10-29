@@ -3,6 +3,8 @@
   // CSRF対策：セッションにトークンを生成する
   session_start();
 
+  require 'validation.php';
+
   // クリックジャッキング対策：被せを拒否する
   header('X-FRAME-OPTIONS:DENY');
 
@@ -16,7 +18,9 @@
   echo '</pre>';
 
   $pageFlag = 0;
-  if (!empty($_POST['btn_confirm'])) {
+  $error = validation($_POST);
+
+  if (!empty($_POST['btn_confirm']) && empty($error)) {
     $pageFlag = 1;
   }
   if (!empty($_POST['btn_submit'])) {
@@ -45,6 +49,15 @@
       }
       $token = $_SESSION['csrfToken'];
     ?>
+
+      <?php if(!empty($_POST['btn_confirm']) && !empty($error)) : ?>
+        <ul>
+          <?php foreach($error as $value): ?>
+          <li><?php echo $value; ?></li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
+
       <form method="POST" action="gathers.php">
         氏名
         <input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
