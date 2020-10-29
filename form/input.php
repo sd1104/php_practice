@@ -55,7 +55,17 @@ if(!empty($_POST['btn_submit'])) {
 
 
 
-
+<?php if($pageFlag === 0): ?>
+  <form method="POST" action="input.php">
+    名前
+    <input type="text" name="your_name" value="<?php echo $_POST['your_name']; ?>">
+    <br>
+    メールアドレス
+    <input type="email" name="email" value="<?php echo $_POST['email']; ?>">
+    <br>
+    <input type="submit" name="btn_confirm" value="確認する">
+  </form>
+<?php endif; ?>
 
 
 </body>
