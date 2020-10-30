@@ -46,7 +46,17 @@ if( !empty($_POST['btn_submit']) ) {
     ?>
 
     <form id="form1" method="POST" action="practice.php">
-    <input type="hidden" name="csrf" value=""><?php echo h($token) ?>
+      <input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
+      <input type="text" name="email" value="<?php echo h($_POST['email']); ?>">
+      <input type="radio" name="gender" value="0">男性
+      <input type="radio" name="gender" value="1">女性
+      <select name="age">
+        <option value="0">選択してください。</option>
+        <option value="1">10歳</option>
+      </select>
+      <textarea name="contact" value="<?php echo h($_POST['contact']); ?>"></textarea>
+      <input type="checkbox" name="caution" value="1">
+      <input type="hidden" name="csrf" value=""><?php echo h($token) ?>
       <input type="submit" name="btn_confirm" value="確認する">
     </form>
 
