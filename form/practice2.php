@@ -54,10 +54,12 @@ if( !empty($_POST['btn_submit']) ) {
 
 
   <?php if($pageFlag == 2): ?>
+    送信が完了しました。
     <form id="form1" method="POST" action="practice.php">
       <input type="hidden" name="csrf" value=""><?php echo h($_POST['csrf']) ?>
       <input type="submit" name="top" value="トップへ">
     </form>
+    <?php unset($_SESSION['csrfToken']) ?>
   <?php endif; ?>
 
 
