@@ -37,6 +37,14 @@ if( !empty($_POST['btn_submit']) ) {
 
   <?php if($pageFlag == 0): ?>
 
+    <?php
+      if(!isset($_SESSION['csrfToken'])) {
+        $csrfToken = bin2hex(random_bytes(32));
+        $_SESSION['csrfToken'] = $csrfToken;
+      }
+      $token = $_SESSION['csrfToken']
+    ?>
+
     <form id="form1" method="POST" action="practice.php">
     <input type="hidden" name="csrf" value=""><?php echo h($token) ?>
       <input type="submit" name="btn_confirm" value="確認する">
@@ -46,20 +54,24 @@ if( !empty($_POST['btn_submit']) ) {
 
 
   <?php if($pageFlag == 1): ?>
+    <?php if($_POST['csrf'] === $_SESSION['csrfToken']) :?>
     <form id="form1" method="POST" action="practice.php">
     <input type="hidden" name="csrf" value=""><?php echo h($_POST['csrf']) ?>
       <input type="submit" name="btn_submit" value="送信する">
     </form>
   <?php endif; ?>
+  <?php endif; ?>
 
 
   <?php if($pageFlag == 2): ?>
+    <?php if($_POST['csrf'] === $_SESSION['csrfToken']) :?>
     送信が完了しました。
     <form id="form1" method="POST" action="practice.php">
       <input type="hidden" name="csrf" value=""><?php echo h($_POST['csrf']) ?>
       <input type="submit" name="top" value="トップへ">
     </form>
     <?php unset($_SESSION['csrfToken']) ?>
+    <?php endif; ?>
   <?php endif; ?>
 
 
