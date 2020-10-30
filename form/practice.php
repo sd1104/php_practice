@@ -37,18 +37,36 @@ if (!empty($_POST['btn_submit']) && empty($error)) {
   <h3>お問い合わせフォーム</h3>
 
   <?php if($pageFlag === 0): ?>
+  <?php
+      if(!isset($_SESSION['csrfToken'])) {
+      $csrfToken = bin2hex(random_bytes(32));
+      $_SESSION['csrfToken'] = $csrfToken;
+    }
+    $token = $SESSION['scrfToken'];
+  ?>
+  <form method="POST" action="practice.php">
+    <input type="hidden" value="<?php  echo h($token); ?>">
+  </form>
   <?php endif; ?>
 
 
   <?php if($pageFlag === 1): ?>
+  <?php if ($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+    <form method="POST" action="practice.php">
+
+    </form>
+  <?php endif; ?>
   <?php endif; ?>
 
 
   <?php if($pageFlag === 2): ?>
+  <?php if ($_POST['csrf'] === $_SESSION['csrfToken']): ?>
     送信が完了しました。
     <form method="GET" action="practice.php">
       <input type="submit" name="top" value="トップへ">
     </form>
+    <?php unset($_SESSION['csrfToken']); ?>
+   <?php endif; ?>
   <?php endif; ?>
 
 </body>
