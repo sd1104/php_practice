@@ -47,7 +47,7 @@ if( !empty($_POST['btn_submit']) ) {
     ?>
 
     <form id="form1" method="POST" action="practice2.php">
-      <br>input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
+      <br><input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
       <br><input type="text" name="email" value="<?php echo h($_POST['email']); ?>">
       <br><input type="radio" name="gender" value="0">男性
       <input type="radio" name="gender" value="1">女性
@@ -57,7 +57,7 @@ if( !empty($_POST['btn_submit']) ) {
       </select>
      <br> <textarea name="contact" value="<?php echo h($_POST['contact']); ?>"></textarea>
       <br><input type="checkbox" name="caution" value="1">
-      <br><input type="hidden" name="csrf" value=""><?php echo h($token) ?>
+      <br><input type="hidden" name="csrf" value="<?php echo h($token) ?>">
       <br><input type="submit" name="btn_confirm" value="確認する">
     </form>
 
@@ -66,8 +66,13 @@ if( !empty($_POST['btn_submit']) ) {
 
   <?php if($pageFlag == 1): ?>
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']) :?>
+      氏名：<?php echo h($_POST['your_name']); ?><br>
+      メールアドレス；<?php echo h($_POST['email']); ?><br>
+      性別：<?php echo h($_POST['gender']); ?><br>
+      年齢<?php echo h($_POST['age']); ?><br>
+      問合せ<?php echo h($_POST['contact']); ?><br>
     <form id="form1" method="POST" action="practice2.php">
-    <input type="hidden" name="csrf" value=""><?php echo h($_POST['csrf']) ?>
+    <input type="hidden" name="csrf" value="<?php echo h($_POST['csrf']) ?>">
       <input type="submit" name="btn_submit" value="送信する">
     </form>
   <?php endif; ?>
@@ -78,7 +83,7 @@ if( !empty($_POST['btn_submit']) ) {
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']) :?>
     送信が完了しました。
     <form id="form1" method="POST" action="practice2.php">
-      <input type="hidden" name="csrf" value=""><?php echo h($_POST['csrf']) ?>
+      <input type="hidden" name="csrf" value="<?php echo h($_POST['csrf']) ?>">
       <input type="submit" name="top" value="トップへ">
     </form>
     <?php unset($_SESSION['csrfToken']) ?>
