@@ -1,7 +1,8 @@
 <?php
-require 'validation';
+require 'validation.php';
 
 session_start();
+
 header('X-FRAME-OPTIONS:DENY');
 // クロスサイトスクリプティング対策：送信時文字をサニタイジングする
 function h($str) {
@@ -45,19 +46,19 @@ if( !empty($_POST['btn_submit']) ) {
       $token = $_SESSION['csrfToken']
     ?>
 
-    <form id="form1" method="POST" action="practice.php">
-      <input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
-      <input type="text" name="email" value="<?php echo h($_POST['email']); ?>">
-      <input type="radio" name="gender" value="0">男性
+    <form id="form1" method="POST" action="practice2.php">
+      <br>input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
+      <br><input type="text" name="email" value="<?php echo h($_POST['email']); ?>">
+      <br><input type="radio" name="gender" value="0">男性
       <input type="radio" name="gender" value="1">女性
-      <select name="age">
+      <br><select name="age">
         <option value="0">選択してください。</option>
         <option value="1">10歳</option>
       </select>
-      <textarea name="contact" value="<?php echo h($_POST['contact']); ?>"></textarea>
-      <input type="checkbox" name="caution" value="1">
-      <input type="hidden" name="csrf" value=""><?php echo h($token) ?>
-      <input type="submit" name="btn_confirm" value="確認する">
+     <br> <textarea name="contact" value="<?php echo h($_POST['contact']); ?>"></textarea>
+      <br><input type="checkbox" name="caution" value="1">
+      <br><input type="hidden" name="csrf" value=""><?php echo h($token) ?>
+      <br><input type="submit" name="btn_confirm" value="確認する">
     </form>
 
   <?php endif; ?>
@@ -65,7 +66,7 @@ if( !empty($_POST['btn_submit']) ) {
 
   <?php if($pageFlag == 1): ?>
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']) :?>
-    <form id="form1" method="POST" action="practice.php">
+    <form id="form1" method="POST" action="practice2.php">
     <input type="hidden" name="csrf" value=""><?php echo h($_POST['csrf']) ?>
       <input type="submit" name="btn_submit" value="送信する">
     </form>
@@ -76,7 +77,7 @@ if( !empty($_POST['btn_submit']) ) {
   <?php if($pageFlag == 2): ?>
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']) :?>
     送信が完了しました。
-    <form id="form1" method="POST" action="practice.php">
+    <form id="form1" method="POST" action="practice2.php">
       <input type="hidden" name="csrf" value=""><?php echo h($_POST['csrf']) ?>
       <input type="submit" name="top" value="トップへ">
     </form>
