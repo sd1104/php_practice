@@ -46,13 +46,14 @@
 
   <h3>フォーム入力</h3>
 
-  <?php if($pageFlag = 0): ?>
+  <?php if($pageFlag == 0): ?>
     <?php
-      if( !empty($_SESSION['csrfToken']) ) {
+      if( !isset($_SESSION['csrfToken']) ) {
         $csrfToken = bin2hex(random_bytes(32));
         $_SESSION['csrfToken'] = $csrfToken;
       }
-      $token = $_SESSION['csrfToken']
+      $token = $_SESSION['csrfToken'];
+      echo $token;
     ?>
     <form method="POST" action="practice3.php" id="form1">
       <input type="hidden" name="csrf" value="<?php echo $token ?>">
@@ -61,7 +62,7 @@
   <?php endif; ?>
 
 
-  <?php if($pageFlag = 1): ?>
+  <?php if($pageFlag == 1): ?>
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
       <h3>送信内容確認ページ</h3>
       <form method="POST" action="practice3.php" id="form1">
@@ -72,7 +73,7 @@
   <?php endif; ?>
 
 
-  <?php if($pageFlag = 2): ?>
+  <?php if($pageFlag == 2): ?>
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
       <h3>送信完了ページ</h3>
         送信が完了しました。
