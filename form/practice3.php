@@ -74,6 +74,11 @@
   <?php if($pageFlag == 1): ?>
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
       <h3>送信内容確認ページ</h3>
+        <?php echo h($_POST['your_name']) ?>
+        <?php echo h($_POST['email']) ?>
+        <?php echo h($_POST['age']) ?>
+        <?php echo h($_POST['gender']) ?>
+        <?php echo h($_POST['contact']) ?>
       <form method="POST" action="practice3.php" id="form1">
         <input type="hidden" name="csrf" value="<?php echo $_POST['csrf'] ?>">
         <input type="submit" name="btn_submit" value="送信する">
