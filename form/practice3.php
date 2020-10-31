@@ -17,10 +17,10 @@
     var_dump($_POST);
     var_dump($_SESSION);
     var_dump($pafeFlag);
-    var_dump($error);
+    // var_dump($error);
   echo '</pre>';
 
-  if( !empty($_POST['btn_confirm']) && empty($error) ) {
+  if( !empty($_POST['btn_confirm'])  ) {
     $pageFlag = 1;
   }
   if( !empty($_POST['btn_submit'])) {
@@ -63,7 +63,9 @@
 
   <?php if($pageFlag = 1): ?>
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+      <h3>送信内容確認ページ</h3>
       <form method="POST" action="practice3.php" id="form1">
+        <input type="hidden" name="csrf" value="<?php echo $_POST['csrf'] ?>">
         <input type="submit" name="btn_submit" value="送信する">
       </form>
     <?php endif; ?>
@@ -72,9 +74,12 @@
 
   <?php if($pageFlag = 2): ?>
     <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
-      <form method="POST" action="practice3.php" id="form1">
-        <input type="submit" name="top" value="トップへ">
-      </form>
+      <h3>送信完了ページ</h3>
+        送信が完了しました。
+        <form method="POST" action="practice3.php" id="form1">
+          <input type="hidden" name="csrf" value="<?php echo $_POST['csrf'] ?>">
+          <input type="submit" name="top" value="トップへ">
+        </form>
       <?php unset($_SESSION['csrfToken']); ?>
     <?php endif; ?>
   <?php endif; ?>
