@@ -41,7 +41,21 @@
 </head>
 
 <body>
-  hello
+
+  <h2>フォーム作成練習</h2>
+
+  <h3>フォーム入力</h3>
+
+  <?php if($pageFlag = 0): ?>
+  <?php endif; ?>
+  <?php if($pageFlag = 1): ?>
+  <?php endif; ?>
+  <?php if($pageFlag = 2): ?>
+  <?php endif; ?>
+
+
+
+
 </body>
 
 </html>
