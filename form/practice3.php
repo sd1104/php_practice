@@ -56,6 +56,7 @@
     ?>
     <form method="POST" action="practice3.php" id="form1">
       <input type="text" name="your_name" value="<?php echo h($_POST['your_name']) ?>">
+      <input type="text" name="email" value="<?php echo h($_POST['email']) ?>">
       <input type="hidden" name="csrf" value="<?php echo $token ?>">
       <input type="submit" name="btn_confirm" value="確認する">
     </form>
