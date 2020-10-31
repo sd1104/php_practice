@@ -62,7 +62,9 @@
       <select name="age">
         <option value="0">please selet</option>
         <option value="1">10 years old</option>
-      </select>
+      </select><br>
+      <textarea name="contact" value="<?php echo h($_POST['contact']) ?>" cols="30" rows="10"></textarea><br>
+      <input type="checkbox" name="caution" value="<?php echo h($_POST['caution']) ?>"><br>
       <input type="hidden" name="csrf" value="<?php echo $token ?>">
       <input type="submit" name="btn_confirm" value="確認する">
     </form>
