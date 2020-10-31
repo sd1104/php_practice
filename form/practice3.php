@@ -23,7 +23,7 @@
   if( !empty($_POST['btn_confirm']) && empty($error) ) {
     $pageFlag = 1;
   }
-  if( !empty($_POST['btn_confirm'])) {
+  if( !empty($_POST['btn_submit'])) {
     $pageFlag = 2;
   }
 
@@ -47,10 +47,23 @@
   <h3>フォーム入力</h3>
 
   <?php if($pageFlag = 0): ?>
+    <form method="POST" action="practice3.php" id="form1">
+      <input type="submit" name="btn_confirm" value="確認する">
+    </form>
   <?php endif; ?>
+
+
   <?php if($pageFlag = 1): ?>
+    <form method="POST" action="practice3.php" id="form1">
+      <input type="submit" name="btn_submit" value="送信する">
+    </form>
   <?php endif; ?>
+
+
   <?php if($pageFlag = 2): ?>
+    <form method="POST" action="practice3.php" id="form1">
+    <input type="submit" name="top" value="トップへ">
+    </form>
   <?php endif; ?>
 
 
