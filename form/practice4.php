@@ -18,7 +18,7 @@
     $pageFlag = 1;
   }
   if(!empty($_POST['btn_submit']) ) {
-    $pageFlag = 1;
+    $pageFlag = 2;
   }
 
   echo '<pre>';
@@ -44,7 +44,7 @@
       <?php
         if( !isset($_SESSION['csrfToken']) ) {
           $csrfToken = bin2hex(random_bytes(32));
-          $csrfToken = $_SESSION['csrfToken'];
+          $_SESSION['csrfToken'] = $csrfToken;
         }
         $token = $_SESSION['csrfToken'];
       ?>
@@ -112,6 +112,15 @@
 
   <section>
     <?php if($pageFlag == 2): ?>
+    <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+      <div>
+        <p>submit done perfectly</p>
+        <form method="POST" action="practice4.php" id="form1">
+          <input type="submit" name="top" value="to top">
+        </form>
+        <?php unset($_SESSION['csrfToken']) ?>
+      </div>
+    <?php endif; ?>
     <?php endif; ?>
   </section>
 
