@@ -13,10 +13,6 @@
   $pageFlag = 0;
   $error = validation($_POST);
 
-  echo '<pre>';
-    var_dump($_POST);
-    var_dump($_SESSION);
-  echo '</pre>';
 
   if(!empty($_POST['btn_confirm']) ) {
     $pageFlag = 1;
@@ -24,6 +20,12 @@
   if(!empty($_POST['btn_submit']) ) {
     $pageFlag = 1;
   }
+
+  echo '<pre>';
+    var_dump($_POST);
+    var_dump($_SESSION);
+    var_dump($pageFlag);
+  echo '</pre>';
 
 ?>
 
@@ -38,7 +40,7 @@
 <body>
 
   <section>
-    <?php if($pageFlag === 0): ?>
+    <?php if($pageFlag == 0): ?>
       <?php
         if( !isset($_SESSION['csrfToken']) ) {
           $csrfToken = bin2hex(random_bytes(32));
@@ -46,9 +48,9 @@
         }
         $token = $_SESSION['csrfToken'];
       ?>
-    <?php endif; ?>
 
-    <div>
+      <div>
+        <h2>input form</h2>
         <form id="form1" method="POST" action="practice4.php">
           your_name:
           <input type="text" name="your_name" value="<?php echo h($_POST['your_name']) ?>">
@@ -78,23 +80,38 @@
           <br>
           <input type="hidden" name="csrf" value="<?php echo $token ?>">
           <input type="submit" name="btn_confirm" value="confirm">
-
-
-
         </form>
-    </div>
-
-  </section>
-
-
-  <section>
-    <?php if($pageFlag === 1): ?>
+      </div>
     <?php endif; ?>
   </section>
 
 
   <section>
-    <?php if($pageFlag === 2): ?>
+    <?php if($pageFlag == 1): ?>
+    <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+      <h2>input confirm</h2>
+      <form method="POST" action="practice4.php" id="form1">
+        your_name:<?php echo h($_POST['your_name']) ?>
+        <br>
+        email:<?php echo h($_POST['email']) ?>
+        <br>
+        gender:<?php echo h($_POST['gender']) ?>
+        <br>
+        age:<?php echo h($_POST['age']) ?>
+        <br>
+        <?php echo h($_POST['contact']) ?>
+        <br>
+        <input type="hidden" name="csrf" value="<?php echo h($_SESSION['csrfToken']) ?>">
+        <input type="submit" name="btn_submit" value="submit">
+      </form>
+
+    <?php endif; ?>
+    <?php endif; ?>
+  </section>
+
+
+  <section>
+    <?php if($pageFlag == 2): ?>
     <?php endif; ?>
   </section>
 
