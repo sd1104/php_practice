@@ -47,6 +47,43 @@
         $token = $_SESSION['csrfToken'];
       ?>
     <?php endif; ?>
+
+    <div>
+        <form id="form1" method="POST" action="practice4.php">
+          your_name:
+          <input type="text" name="your_name" value="<?php echo h($_POST['your_name']) ?>">
+          <br>
+          email:
+          <input type="text" name="email" value="<?php echo h($_POST['email']) ?>">
+          <br>
+          gender:
+          <input type="radio" name="gender" value="0">male
+          <input type="radio" name="gender" value="1">female
+          <br>
+          age:
+          <select name="age" >
+            <option value="0">please select</option>
+            <option value="1">10 years old</option>
+            <option value="2">20 years old</option>
+            <option value="3">30 years old</option>
+            <option value="4">40 years old</option>
+            <option value="5">50 years old</option>
+          </select>
+          <br>
+          contact:
+          <textarea name="contact" value="<?php echo h($_POST['contact']) ?>" id="contact" cols="30" rows="10"></textarea>
+          <br>
+          caution:
+          <input type="checkbox" name="caution" value="1">
+          <br>
+          <input type="hidden" name="csrf" value="<?php echo $token ?>">
+          <input type="submit" name="btn_confirm" value="confirm">
+
+
+
+        </form>
+    </div>
+
   </section>
 
 
