@@ -6,7 +6,16 @@
 
     require 'db_connection.php';
 
-
+    $params = [
+      'id' => null,
+      'your_name' => $data['your_name'],
+      'email' => $data['email'],
+      'url' => $data['url'],
+      'gender' => $data['gender'],
+      'age' => $data['age'],
+      'contact' => $data['contact'],
+      'created_at' => null
+    ];
 
 
 
