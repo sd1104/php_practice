@@ -32,6 +32,10 @@
 
     $sql = 'insert into `contacts` ('. $columns .')values('. $values .')';
 
+    echo '<pre>';
+      var_dump($sql);
+    echo '</pre>';
+    // exit;
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
