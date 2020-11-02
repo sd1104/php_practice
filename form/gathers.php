@@ -137,6 +137,10 @@
 
     <?php if ($pageFlag === 2) : ?>
     <?php if ($_POST['csrf'] === $_SESSION['csrfToken']) : ?>
+    <?php
+      require '../maintain/insert.php';
+      insertContact($_POST);
+    ?>
       送信が完了しました。
       <form method="POST" action="gathers.php">
         <input type="submit" name="top" value="トップへ">
