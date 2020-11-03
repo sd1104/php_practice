@@ -25,8 +25,8 @@
   } catch(PDOException $e){
     $pdo->rollback();
   }
-
   $result = $stmt->fetchall();
+
   echo '<pre>';
     var_dump($result);
   echo '</pre>';
