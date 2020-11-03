@@ -166,7 +166,32 @@ class Blood extends Assesment {
   }
 }
 
+class Colestrole extends Assesment {
+  public function show_colestrole($data) {
+    echo 'your colestrole value is ';
+    echo $data;
+    echo '<br>';
+  }
 
+  public function judge_colestrole($data) {
+    if($data < 150 && $data > 0) {
+      echo 'low';
+      echo '<br>';
+    }
+    if($data > 200) {
+      echo 'high';
+      echo '<br>';
+    }
+    if ($data <=150 && $data >=200) {
+      echo 'middle';
+      echo '<br>';
+    }
+    if ($data <= 0) {
+      echo 'value is illegal.';
+      echo '<br>';
+    }
+  }
+}
 
 
 $heighth = $_POST['height'];
@@ -200,6 +225,20 @@ echo '<br>';
 echo '<br>';
 
 
+$colesterole = new Colestrole($heighth, $weight, $b_pressure);
+echo 'colestrole parts';
+echo '<br>';
+$colesterole_value = $_POST['colestrole'];
+$colesterole->show_colestrole($colesterole_value);
 
+echo 'Your Colestrole is ';
+$colesterole->judge_colestrole($colesterole_value);
+// echo 'Your Data is below.';
+// echo '<br>';
+// $colesterole->show_data();
+// echo 'bmi is ';
+// $colesterole->show_bmi();
+echo '<br>';
+echo '<br>';
 
 ?>
