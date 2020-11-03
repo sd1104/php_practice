@@ -74,7 +74,17 @@ make_minus();
 
 // 問題D
 
+$height = $_POST['height'];
 
+if($height < 100 && $height > 0) {
+  echo 'small';
+} else if($height > 180) {
+ echo 'tall';
+} else if ($height <=180 && $height >=100) {
+  echo 'middle';
+} else {
+  echo 'value is illegal.';
+}
 
 
 
