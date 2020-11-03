@@ -114,7 +114,8 @@ switch($height) {
   break;
 }
 
-
+$judge = $height >= 120 ? 'OK' : 'Not OK';
+echo $judge;
 
 ?>
 
