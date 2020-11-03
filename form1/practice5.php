@@ -54,7 +54,10 @@
 
   <?php if($pageFlag == 1): ?>
   <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+    <h2>確認画面 </h2>
+    <?php echo h($_POST['test']) ?>
     <form  id="form1" method="POST" action="practice5.php">
+      <input type="hidden" name="test" value="<?php echo h($_POST['test']) ?>">
       <input type="hidden" name="csrf" value="<?php echo h($_POST['csrf']) ?>">
       <input type="submit" name="btn_submit" value="submit">
     </form>
