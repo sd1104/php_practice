@@ -86,7 +86,18 @@ if($height < 100 && $height > 0) {
   echo 'value is illegal.';
 }
 
-
+if($height < 100 && $height > 0) {
+  echo 'small';
+}
+if($height > 180) {
+ echo 'tall';
+}
+if ($height <=180 && $height >=100) {
+  echo 'middle';
+}
+if ($height <= 0) {
+  echo 'value is illegal.';
+}
 
 
 
