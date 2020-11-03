@@ -120,21 +120,56 @@
 
 // 問題E
 
+class Assesment {
+  public $heighth = null;
+  public $weight = '';
+  public $b_pressure = '';
+
+  function __construct($heighth, $weight, $b_pressure) {
+    $this->heighth = $heighth;
+    $this->weight = $weight;
+    $this->b_pressure = $b_pressure;
+  }
+
+  public function show_data() {
+    echo 'heighth is ' . $this->heighth;
+    echo '<br>';
+    echo 'weight is ' . $this->weight;
+    echo '<br>';
+    echo 'b_pressure is ' . $this->b_pressure;
+    echo '<br>';
+  }
+
+  public function show_bmi() {
+    echo ( $this->weight / ( ($this->heighth/100) * ($this->heighth/100) ) );
+  }
+}
+
+
+
+
+
+
+$heighth = $_POST['height'];
+$weight = $_POST['weight'];
+$b_pressure = $_POST['b_pressure'];
+
+
+$assess = new Assesment($heighth, $weight, $b_pressure);
+echo 'assesment parts';
+echo '<br>';
+echo 'Your Data is below.';
+echo '<br>';
+$assess->show_data();
+echo 'bmi is ';
+$assess->show_bmi();
+echo '<br>';
+echo '<br>';
+
+
+
+
+
+
+
 ?>
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>basic practice</title>
-</head>
-<body>
-
-  <form method="POST" action="basic-practice.php">
-    <input type="number" name="height" value="<?php $_POST['height'] ?>">
-    <input type="submit" value="submit">
-  </form>
-
-</body>
-</html>
