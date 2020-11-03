@@ -83,3 +83,20 @@ make_minus();
 
 
 ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic practice</title>
+</head>
+<body>
+
+  <form method="POST" action="basic-practice.php">
+    <input type="number" name="height" value="<?php $_POST['height'] ?>">
+    <input type="submit" value="submit">
+  </form>
+
+</body>
+</html>
