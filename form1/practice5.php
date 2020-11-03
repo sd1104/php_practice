@@ -38,12 +38,17 @@
 <body>
 
   <?php if($pageFlag == 0): ?>
-
+  <?php
+    if( !isset($SESSION['csrfToken']) ){
+      $csrfToken = bin2hex(random_bytes(32));
+      $_SESSION['csrfToken'] = $csrfToken;
+    }
+    $token = $_SESSION['csrfToken'];
+  ?>
     <form  id="form1" method="POST" action="practice5.php">
       <input type="hidden" name="csrf" value="$token">
       <input type="submit" name="btn_confirm" value="confirm">
     </form>
-  <?php endif; ?>
   <?php endif; ?>
 
 
