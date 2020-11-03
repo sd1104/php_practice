@@ -12,10 +12,10 @@
   $pageFlag = 0;
   $error = validation($_POST);
 
-  if(!empty($_POST['btn_confirm']) && empty($error)) {
+  if(!empty($_POST['btn_confirm']) ) {
     $pageFlag = 1;
   }
-  if(!empty($_POST['btn_submit']) && empty($error)) {
+  if(!empty($_POST['btn_submit']) ) {
     $pageFlag = 2;
   }
 
@@ -64,8 +64,9 @@
 
   <?php if($pageFlag == 2): ?>
   <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+    <h2>完了画面</h2>
+    送信が完了しました。
     <form  id="form1" method="POST" action="practice5.php">
-
       <input type="submit" name="btn_top" value="toppage">
     </form>
   <?php endif; ?>
