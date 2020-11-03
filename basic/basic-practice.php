@@ -42,7 +42,21 @@ foreach($boy as $k => $v) {
   echo $v . '.' . '&nbsp' ;
 };
 
-
+function make_minus() {
+  $count = 0;
+  while($count < 10) {
+    $A = rand(1, 99);
+    $B = rand(1, 99);
+    while($A < $B ) {
+      $A = rand(1, 99);
+      $B = rand(1, 99);
+    }
+    echo $A . '&nbsp' . '-' . '&nbsp' . $B ;
+    echo '<br>';
+    $count++;
+  }
+};
+make_minus();
 
 
 
