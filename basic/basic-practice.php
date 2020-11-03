@@ -58,7 +58,19 @@ function make_minus() {
 };
 make_minus();
 
-
+function make_minus() {
+  for($i = 0; $i < 10; $i++) {
+    $A = rand(1, 99);
+    $B = rand(1, 99);
+    while($A < $B ) {
+      $A = rand(1, 99);
+      $B = rand(1, 99);
+    }
+    echo $A . '&nbsp' . '-' . '&nbsp' . $B ;
+    echo '<br>';
+  }
+};
+make_minus();
 
 // 問題D
 
