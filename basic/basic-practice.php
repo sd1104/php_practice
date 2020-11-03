@@ -145,7 +145,26 @@ class Assesment {
   }
 }
 
-
+class Blood extends Assesment {
+  public function show_blood_data() {
+    if($this->b_pressure < 800 && $this->b_pressure> 0) {
+      echo 'low';
+      echo '<br>';
+    }
+    if($this->b_pressure > 1500) {
+      echo 'high';
+      echo '<br>';
+    }
+    if ($this->b_pressure <=800 && $this->b_pressure >=1500) {
+      echo 'middle';
+      echo '<br>';
+    }
+    if ($this->b_pressure <= 0) {
+      echo 'value is illegal.';
+      echo '<br>';
+    }
+  }
+}
 
 
 
@@ -167,7 +186,18 @@ echo '<br>';
 echo '<br>';
 
 
-
+$blood = new Blood($heighth, $weight, $b_pressure);
+echo 'blood pressure parts';
+echo '<br>';
+echo 'blood_pressure is ';
+$blood->show_blood_data();
+// echo 'Your Data is below.';
+// echo '<br>';
+// $blood->show_data();
+// echo 'bmi is ';
+// $blood->show_bmi();
+echo '<br>';
+echo '<br>';
 
 
 
