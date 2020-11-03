@@ -99,7 +99,20 @@ if ($height <= 0) {
   echo 'value is illegal.';
 }
 
-
+switch($height) {
+  case $height < 100 && $height > 0:
+    echo 'small';
+  break;
+  case $height >= 100 && $height <= 180:
+    echo 'middle';
+  break;
+  case $height > 180:
+    echo 'tall';
+    break;
+  default:
+    echo 'value is illegal.';
+  break;
+}
 
 
 
