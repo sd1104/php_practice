@@ -45,7 +45,9 @@
     }
     $token = $_SESSION['csrfToken'];
   ?>
+    <h2>入力画面 </h2>
     <form  id="form1" method="POST" action="practice5.php">
+      <input type="text" name="test" value="<?php echo h($_POST['test']) ?>">
       <input type="hidden" name="csrf" value="$token">
       <input type="submit" name="btn_confirm" value="confirm">
     </form>
