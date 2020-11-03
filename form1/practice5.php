@@ -38,11 +38,34 @@
 <body>
 
   <?php if($pageFlag == 0): ?>
+
+    <form  id="form1" method="POST" action="practice5.php">
+      <input type="hidden" name="csrf" value="$token">
+      <input type="submit" name="btn_confirm" value="confirm">
+    </form>
   <?php endif; ?>
+  <?php endif; ?>
+
+
   <?php if($pageFlag == 1): ?>
+  <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+    <form  id="form1" method="POST" action="practice5.php">
+      <input type="hidden" name="csrf" value="<?php echo h($_POST['csrf']) ?>">
+      <input type="submit" name="btn_submit" value="submit">
+    </form>
   <?php endif; ?>
+  <?php endif; ?>
+
+
   <?php if($pageFlag == 2): ?>
+  <?php if($_POST['csrf'] === $_SESSION['csrfToken']): ?>
+    <form  id="form1" method="POST" action="practice5.php">
+
+      <input type="submit" name="btn_top" value="toppage">
+    </form>
   <?php endif; ?>
+  <?php endif; ?>
+
 
 
 
