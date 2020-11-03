@@ -37,7 +37,10 @@ echo '<pre>';
 
 
 // 問題C
-
+foreach($boy as $k => $v) {
+  echo $k . '&nbsp' . 'is' . '&nbsp' ;
+  echo $v . '.' . '&nbsp' ;
+};
 
 
 
