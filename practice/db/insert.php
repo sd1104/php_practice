@@ -23,10 +23,10 @@
 
     foreach(array_keys($params) as $key) {
       if($count++>0) {
-        $colums .= ',';
+        $columns .= ',';
         $values .= ',';
       }
-      $colums .= $key;
+      $columns .= $key;
       $values .= ':' . $key;
     }
 
