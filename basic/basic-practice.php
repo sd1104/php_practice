@@ -20,8 +20,18 @@ $boy = [
 
 var_dump($boy);
 echo '<br>';
-echo $boy['hobby']
+echo $boy['hobby'];
+echo '<br>';
 
 
+foreach($fruits as $num => $fruit) {
+  echo $num . ':' . $fruit;
+  echo '<br>';
+}
+
+foreach($boy as $key => $value) {
+  echo $key . ':' . $value;
+  echo '<br>';
+}
 
 ?>
