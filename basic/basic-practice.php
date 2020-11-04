@@ -10,5 +10,18 @@ $fruits[] = 'peach';
 
 var_dump($fruits);
 
+echo '<br>';
+
+$boy = [
+  'name' => 'John',
+  'age' => 20,
+  'hobby' => 'fishing',
+];
+
+var_dump($boy);
+echo '<br>';
+echo $boy['hobby']
+
+
 
 ?>
