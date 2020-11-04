@@ -31,7 +31,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gathers</title>
+    <title>Contacts.php</title>
   </head>
 
   <body>
@@ -52,7 +52,7 @@
         </ul>
       <?php endif; ?>
 
-      <form method="POST" action="gathers.php">
+      <form method="POST" action="contacts.php">
         氏名
         <input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
         <br>
@@ -91,7 +91,7 @@
 
     <?php if ($pageFlag === 1) : ?>
     <?php if ($_POST['csrf'] === $_SESSION['csrfToken']) : ?>
-      <form method="POST" action="gathers.php">
+      <form method="POST" action="contacts.php">
         名前
         <?php echo h($_POST['your_name']); ?>
         <br>
@@ -138,11 +138,11 @@
     <?php if ($pageFlag === 2) : ?>
     <?php if ($_POST['csrf'] === $_SESSION['csrfToken']) : ?>
     <?php
-      require '../maintain/insert.php';
+      require '../practice/db/insert.php';
       insertContact($_POST);
     ?>
       送信が完了しました。
-      <form method="POST" action="gathers.php">
+      <form method="POST" action="contacts.php">
         <input type="submit" name="top" value="トップへ">
       </form>
     <?php unset($_SESSION['csrtToken']) ?>
