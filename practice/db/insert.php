@@ -32,7 +32,8 @@
 
     $sql = 'insert into `contacts` ('. $columns .')values('. $values .')';
 
-
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
 
   }
 ?>
