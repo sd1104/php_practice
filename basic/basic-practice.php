@@ -75,6 +75,35 @@ $height = $_POST['height'];
 //   var_dump($_POST);
 // echo '</pre>';
 
+class Assesment {
+  public $height = null;
+  public $weight = null;
+  public $pressure = null;
+
+  function __construct($height, $weight, $pressure) {
+    $this->height = $height;
+    $this->weight = $weight;
+    $this->puressure = $pressure;
+  }
+
+  public function show_data() {
+    echo 'height' . 'is' . $this->height;
+    echo '<br>';
+    echo 'weight' . 'is' . $this->weight;
+    echo '<br>';
+    echo 'pressure' . 'is' . $this->pressure;
+    echo '<br>';
+  }
+
+  public function show_bmi() {
+    echo 'bmi is ';
+    echo $this->weight / ($this->height/100)^2;
+    echo '<br>';
+  }
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
