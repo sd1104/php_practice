@@ -30,7 +30,7 @@
       $values .= ':' . $key;
     }
 
-
+    $sql = 'insert into `contacts` ('. $columns .')values('. $values .')';
 
 
 
