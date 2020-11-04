@@ -17,6 +17,21 @@
       'created_at' => null
     ];
 
+    $count = 0;
+    $columns = '';
+    $values = '';
+
+    foreach(array_keys($params) as $key) {
+      if($count++>0) {
+        $colums .= ',';
+        $values .= ',';
+      }
+      $colums .= $key;
+      $values .= ':' . $key;
+    }
+
+
+
 
 
   }
