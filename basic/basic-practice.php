@@ -35,6 +35,8 @@ foreach($boy as $key => $value) {
 }
 
 $height = $_POST['height'];
+$weight = $_POST['weight'];
+$pressure = $_POST['pressure'];
 
 // if ($height >= 180) {
 //   echo 'tall';
@@ -83,7 +85,7 @@ class Assesment {
   function __construct($height, $weight, $pressure) {
     $this->height = $height;
     $this->weight = $weight;
-    $this->puressure = $pressure;
+    $this->pressure = $pressure;
   }
 
   public function show_data() {
@@ -97,12 +99,41 @@ class Assesment {
 
   public function show_bmi() {
     echo 'bmi is ';
-    echo $this->weight / ($this->height/100)^2;
+    echo $this->weight / (($this->height/100)^2);
     echo '<br>';
   }
-
 }
 
+class Blood extends Assesment {
+  public function show_blood_status() {
+      if ($this->pressure >= 150) {
+    echo 'your blood pressure is high';
+    echo '<br>';
+  } else if($this->pressure <= 119) {
+    echo 'your blood pressure is low';
+    echo '<br>';
+  } else if ($this->pressure < 150 && $this->pressure > 119) {
+    echo 'your blood pressure is middle';
+    echo '<br>';
+  } else if($this->pressure == 0) {
+    return;
+  }
+  }
+}
+
+$assesment = new Assesment($height, $weight, $pressure);
+$assesment->show_data();
+echo '<br>';
+$assesment->show_bmi();
+echo '<br>';
+
+$blood = new Blood($height, $weight, $pressure);
+$blood->show_blood_status();
+
+
+echo '<pre>';
+  var_dump($_POST);
+echo '</pre>';
 
 ?>
 
@@ -119,14 +150,14 @@ class Assesment {
     身長
     <input type="number" name="height" value="<?php $_POST['height'] ?>">
     <br>
-    <!-- 体重
+    体重
     <input type="number" name="weight" value="<?php $_POST['weight'] ?>">
     <br>
     血圧
-    <input type="number" name="b_pressure" value="<?php $_POST['b_pressure'] ?>">
+    <input type="number" name="pressure" value="<?php $_POST['pressure'] ?>">
     <br>
     コレステロール値
-    <input type="number" name="colestrole" value="<?php $_POST['colestrole'] ?>"> -->
+    <input type="number" name="colestrole" value="<?php $_POST['colestrole'] ?>">
     <br>
     <input type="submit" value="submit">
   </form>
