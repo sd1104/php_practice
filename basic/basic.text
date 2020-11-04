@@ -13,7 +13,7 @@
 
 問題B
 1）boyという連想配列を作る
-２）name:john,age:20,hobby:fishingという変数を入れる
+２）name:john,age:20,hobby:fishingという値を入れる
 ３）fishingと画面に表示させる。
 
 問題C
