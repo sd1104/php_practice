@@ -100,18 +100,37 @@ class Assesment {
   }
 
   public function show_data() {
+    if (empty($this->height)) return;
     echo 'Your height is ' . ' ' . $this->height . '.';
     echo '<br>';
+    if (empty($this->weight)) return;
     echo 'Your weight is ' . ' ' . $this->weight . '.';
     echo '<br>';
+    if (empty($this->pressure)) return;
     echo 'Your pressure is ' . ' ' . $this->pressure . '.';
     echo '<br>';
   }
 
   public function show_bmi() {
+    if (empty($this->height) && empty($this->weight)) return;
     $bmi = ( $this->weight / ( ($this->height/100)^2 ) );
     echo 'Your bmi is ' . $bmi;
     echo '<br>';
+  }
+}
+
+class Colestrole extends Assesment {
+  public $colestrole = null;
+
+  function  __construct($colestrole)
+  {
+    $this->colestrole = $colestrole;
+  }
+
+  public function judge_colestrole() {
+    if (empty($this->colestrole)) return;
+    $judge = $this->colestrole > 200? 'Your Colestrole is High.' : 'Your Colestrole is normal.';
+    echo $judge;
   }
 }
 
@@ -120,12 +139,17 @@ echo $assesment->height;
 echo '<br>';
 $assesment->show_data();
 $assesment->show_bmi();
+echo '<br>';
 
+$colest = new Colestrole($height, $weight, $pressure, $colestrole);
+$colest->judge_colestrole();
+echo '<br>';
 
 
 echo '<pre>';
   var_dump($_POST);
   var_dump($assesment);
+  var_dump($colest);
 echo '</pre>';
 
 ?>
