@@ -1,42 +1,74 @@
 <?php
 
-$fruits = ['apple', 'orange', 'grape'];
+// $fruits = ['apple', 'orange', 'grape'];
 
-$fruits[1] = 'melon';
-$fruits[] = 'peach';
+// $fruits[1] = 'melon';
+// $fruits[] = 'peach';
 
 // var_dump($fruits);
 // echo $fruits[0];
 
 
-$boy = [
-  'name' => 'John',
-  'age' => 20,
-  'hobby' => 'fishing'
-];
+// $boy = [
+//   'name' => 'John',
+//   'age' => 20,
+//   'hobby' => 'fishing'
+// ];
 
 // echo $boy['hobby'];
 
-foreach($fruits as $fruit) {
-  echo $fruit;
-  echo '<br>';
+// foreach($fruits as $fruit) {
+//   echo $fruit;
+//   echo '<br>';
+// }
+// foreach($fruits as $key => $fruit) {
+//   echo $key . 'is' . $fruit;
+//   echo '<br>';
+// }
+// foreach($boy as $value) {
+//   echo $value;
+//   echo '<br>';
+// }
+// foreach($boy as $key => $value) {
+//   echo $key . 'is' . $value;
+//   echo '<br>';
+// }
+
+$height = $_POST['height'];
+
+if ($height > 180) {
+  echo 'You are Tall.';
+} else if ($height >= 30 && $height < 100) {
+  echo 'You are Small, yet.';
+} else if ($height >= 100 && $height <= 180) {
+  echo 'You are middle.';
+} else {
+  echo '';
 }
-foreach($fruits as $key => $fruit) {
-  echo $key . 'is' . $fruit;
-  echo '<br>';
+
+switch($height) {
+  case($height > 180):
+    echo 'You are  Tall.';
+  break;
+  case($height >= 30 && $height < 100):
+    echo 'You are small, yet.';
+  break;
+  case($height >= 100 && $height <= 180):
+    echo 'You are Middle.';
+  break;
+  default:
+    echo '';
+  break;
 }
-foreach($boy as $value) {
-  echo $value;
-  echo '<br>';
-}
-foreach($boy as $key => $value) {
-  echo $key . 'is' . $value;
-  echo '<br>';
-}
+
+$judge = $height > 150? 'OK' : 'Not OK';
+echo $judge;
+
 
 
 echo '<pre>';
   var_dump($_POST);
+  var_dump($height);
 echo '</pre>';
 
 ?>
