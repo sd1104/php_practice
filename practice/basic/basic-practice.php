@@ -5,8 +5,17 @@ $fruits = ['apple', 'orange', 'grape'];
 $fruits[1] = 'melon';
 $fruits[] = 'peach';
 
-var_dump($fruits);
-echo $fruits[0];
+// var_dump($fruits);
+// echo $fruits[0];
+
+
+$boy = [
+  'name' => 'John',
+  'age' => 20,
+  'hobby' => 'fishing'
+];
+
+echo $boy['hobby'];
 
 
 echo '<pre>';
