@@ -43,19 +43,21 @@
 //     echo '<br>';
 //   }
 // }
-function plus() {
-  $count = 0;
-  while($count<10) {
-    $A = rand(1,9);
-    $B = rand(1,9);
-    echo '(' . ($count+1) . ')' . $A . '+' . $B;
-    echo '<br>';
-    $count++;
-  }
-}
-plus();
+// function plus() {
+//   $count = 0;
+//   while($count<10) {
+//     $A = rand(1,9);
+//     $B = rand(1,9);
+//     echo '(' . ($count+1) . ')' . $A . '+' . $B;
+//     echo '<br>';
+//     $count++;
+//   }
+// }
+// plus();
 
 $height = $_POST['height'];
+$weight = $_POST['weight'];
+$pressure = $_POST['pressure'];
 
 // if ($height > 180) {
 //   echo 'You are Tall.';
@@ -85,11 +87,45 @@ $height = $_POST['height'];
 // $judge = $height > 150? 'OK' : 'Not OK';
 // echo $judge;
 
+class Assesment {
+  public $height = null;
+  public $weight = null;
+  public $pressure = null;
+
+  function  __construct($height, $weight, $pressure)
+  {
+    $this->height = $height;
+    $this->weight = $weight;
+    $this->pressure = $pressure;
+  }
+
+  public function show_data() {
+    echo 'Your height is ' . ' ' . $this->height . '.';
+    echo '<br>';
+    echo 'Your weight is ' . ' ' . $this->weight . '.';
+    echo '<br>';
+    echo 'Your pressure is ' . ' ' . $this->pressure . '.';
+    echo '<br>';
+  }
+
+  public function show_bmi() {
+    $bmi = ( $this->weight / ( ($this->height/100)^2 ) );
+    echo 'Your bmi is ' . $bmi;
+    echo '<br>';
+  }
+}
+
+$assesment = new Assesment($height, $weight, $pressure);
+echo $assesment->height;
+echo '<br>';
+$assesment->show_data();
+$assesment->show_bmi();
+
 
 
 echo '<pre>';
   var_dump($_POST);
-  var_dump($height);
+  var_dump($assesment);
 echo '</pre>';
 
 ?>
