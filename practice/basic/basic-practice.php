@@ -15,7 +15,24 @@ $boy = [
   'hobby' => 'fishing'
 ];
 
-echo $boy['hobby'];
+// echo $boy['hobby'];
+
+foreach($fruits as $fruit) {
+  echo $fruit;
+  echo '<br>';
+}
+foreach($fruits as $key => $fruit) {
+  echo $key . 'is' . $fruit;
+  echo '<br>';
+}
+foreach($boy as $value) {
+  echo $value;
+  echo '<br>';
+}
+foreach($boy as $key => $value) {
+  echo $key . 'is' . $value;
+  echo '<br>';
+}
 
 
 echo '<pre>';
