@@ -34,35 +34,56 @@
 //   echo '<br>';
 // }
 
+
+// function plus() {
+//   for($i = 0; $i<10; $i++) {
+//     $A = rand(1,9);
+//     $B = rand(1,9);
+//     echo '(' . ($i+1) . ')' . $A . '+' . $B;
+//     echo '<br>';
+//   }
+// }
+function plus() {
+  $count = 0;
+  while($count<10) {
+    $A = rand(1,9);
+    $B = rand(1,9);
+    echo '(' . ($count+1) . ')' . $A . '+' . $B;
+    echo '<br>';
+    $count++;
+  }
+}
+plus();
+
 $height = $_POST['height'];
 
-if ($height > 180) {
-  echo 'You are Tall.';
-} else if ($height >= 30 && $height < 100) {
-  echo 'You are Small, yet.';
-} else if ($height >= 100 && $height <= 180) {
-  echo 'You are middle.';
-} else {
-  echo '';
-}
+// if ($height > 180) {
+//   echo 'You are Tall.';
+// } else if ($height >= 30 && $height < 100) {
+//   echo 'You are Small, yet.';
+// } else if ($height >= 100 && $height <= 180) {
+//   echo 'You are middle.';
+// } else {
+//   echo '';
+// }
 
-switch($height) {
-  case($height > 180):
-    echo 'You are  Tall.';
-  break;
-  case($height >= 30 && $height < 100):
-    echo 'You are small, yet.';
-  break;
-  case($height >= 100 && $height <= 180):
-    echo 'You are Middle.';
-  break;
-  default:
-    echo '';
-  break;
-}
+// switch($height) {
+//   case($height > 180):
+//     echo 'You are  Tall.';
+//   break;
+//   case($height >= 30 && $height < 100):
+//     echo 'You are small, yet.';
+//   break;
+//   case($height >= 100 && $height <= 180):
+//     echo 'You are Middle.';
+//   break;
+//   default:
+//     echo '';
+//   break;
+// }
 
-$judge = $height > 150? 'OK' : 'Not OK';
-echo $judge;
+// $judge = $height > 150? 'OK' : 'Not OK';
+// echo $judge;
 
 
 
