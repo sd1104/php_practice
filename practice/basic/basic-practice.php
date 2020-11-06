@@ -74,7 +74,8 @@ switch($height) {
     return '';
   break;
 }
-
+$judge = $height > 180? 'tall' : 'Small';
+echo $judge;
 
 
 
