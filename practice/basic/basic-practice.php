@@ -31,7 +31,18 @@ function make_plus() {
     echo '<br>';
   }
 }
+function make_plus2() {
+  $count = 0;
+  while($count < 10) {
+    $a = rand(1,9);
+    $b = rand(1,9);
+    echo $a . '+' . $b;
+    echo '<br>';
+    $count += 1;
+  }
+}
 
+make_plus2();
 
 
 
