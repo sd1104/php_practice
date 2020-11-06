@@ -45,6 +45,8 @@ function make_plus2() {
 make_plus2();
 
 $height = 180;
+$weight = 100;
+$pressure = 120;
 if($height >= 180) {
   echo 'tall';
   echo '<br>';
@@ -106,6 +108,9 @@ class Assesment {
   }
 }
 
+$asses = new Assesment($height, $weight, $pressure);
+$asses->show_data();
+$asses->show_bmi();
 
 
 ?>
