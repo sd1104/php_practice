@@ -23,7 +23,14 @@ foreach($boy as $key => $value) {
 
 echo '<br>';
 
-
+function make_plus() {
+  for($i = 0; $i < 10; $i++) {
+    $a = rand(1,9);
+    $b = rand(1,9);
+    echo $a . '+' . $b;
+    echo '<br>';
+  }
+}
 
 
 
