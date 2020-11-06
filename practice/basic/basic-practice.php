@@ -57,7 +57,23 @@ if($height >= 180) {
 } else {
   return '';
 }
-
+switch($height) {
+  case($height >= 180) :
+    echo 'tall';
+    echo '<br>';
+  break;
+  case($height <= 100) :
+    echo 'small';
+    echo '<br>';
+  break;
+  case($height > 100 && $height < 180) :
+    echo 'middle';
+    echo '<br>';
+  break;
+  default:
+    return '';
+  break;
+}
 
 
 
