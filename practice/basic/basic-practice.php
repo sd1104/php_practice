@@ -44,6 +44,25 @@ function make_plus2() {
 
 make_plus2();
 
+$height = 180;
+if($height >= 180) {
+  echo 'tall';
+  echo '<br>';
+} else if ($height <= 100) {
+  echo 'small';
+  echo '<br>';
+} else if ($height > 100 && $height < 180) {
+  echo 'middle';
+  echo '<br>';
+} else {
+  return '';
+}
+
+
+
+
+
+
 
 
 ?>
