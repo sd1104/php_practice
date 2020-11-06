@@ -17,7 +17,11 @@ echo $boy['hobby'];
 foreach($fruits as $key => $fruit) {
   echo $fruit;
 };
+foreach($boy as $key => $value) {
+  echo $key . ':' . $value;
+};
 
+echo '<br>';
 
 
 
