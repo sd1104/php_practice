@@ -14,7 +14,9 @@ $boy = [
 echo $boy['hobby'];
 
 
-
+foreach($fruits as $key => $fruit) {
+  echo $fruit;
+};
 
 
 
