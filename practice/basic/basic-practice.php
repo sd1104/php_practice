@@ -78,7 +78,33 @@ $judge = $height > 180? 'tall' : 'Small';
 echo $judge;
 
 
+class Assesment {
+  public $height = null;
+  public $weight = null;
+  public $pressure = null;
 
+  function __construct($a, $b, $c)
+  {
+    $this->height = $a;
+    $this->weight = $b;
+    $this->pressure = $c;
+  }
+
+  public function show_data() {
+    echo $this->height;
+    echo '<br>';
+    echo $this->weight;
+    echo '<br>';
+    echo $this->pressure;
+    echo '<br>';
+  }
+
+  public function show_bmi() {
+    $bmi = $this->weight / ( ($this->height/100)^2 );
+    echo $bmi;
+    echo '<br>';
+  }
+}
 
 
 
