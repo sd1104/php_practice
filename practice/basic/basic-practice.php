@@ -61,16 +61,24 @@
 
 var_dump($height);
 
-if(empty($height)) {
-  echo '';
-} else if($height <= 100){
+// if(empty($height)) {
+//   echo '';
+// } else if($height <= 100){
+//   echo '1';
+// } else if ($height > 100 && $height < 180) {
+//   echo '2';
+// } else if ($height >= 180){
+//   echo '3';
+// }
+if ($height >= 180){
+  echo '3';
+} else if($height >0 && $height <= 100){
   echo '1';
 } else if ($height > 100 && $height < 180) {
   echo '2';
-} else if ($height >= 180){
-  echo '3';
+} else {
+  echo '';
 }
-
 
 ?>
 
