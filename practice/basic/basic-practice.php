@@ -1,8 +1,8 @@
 <?php
-// $heighth = $_POST['height'];
-// $weight = $_POST['weight'];
-// $b_pressure = $_POST['pressure'];
-// $colesterole_value = $_POST['colestrole'];
+$height = $_POST['height'];
+$weight = $_POST['weight'];
+$b_pressure = $_POST['pressure'];
+$colesterole_value = $_POST['colestrole'];
 
 // $fruits = ['apple', 'oraeg', 'grape'];
 // $fruits[1] = 'melon';
@@ -59,8 +59,6 @@
 //   }
 // }
 
-var_dump($height);
-
 // if(empty($height)) {
 //   echo '';
 // } else if($height <= 100){
@@ -70,15 +68,70 @@ var_dump($height);
 // } else if ($height >= 180){
 //   echo '3';
 // }
-if ($height >= 180){
-  echo '3';
-} else if($height >0 && $height <= 100){
-  echo '1';
-} else if ($height > 100 && $height < 180) {
-  echo '2';
-} else {
-  echo '';
+// if ($height >= 180){
+//   echo '3';
+// } else if($height >0 && $height <= 100){
+//   echo '1';
+// } else if ($height > 100 && $height < 180) {
+//   echo '2';
+// } else {
+//   echo '';
+// }
+// var_dump($height);
+// switch($height){
+//   case(empty($height) || $height == NULL):
+//     echo 'irregular';
+//   break;
+//   case($height >= 180):
+//     echo 'c3';
+//   break;
+//   case($height >0 && $height <= 100):
+//     echo 'c1';
+//   break;
+//   case($height > 100 && $height < 180):
+//     echo 'c2';
+//   break;
+//   default:
+//     echo 'minus';
+//   break;
+// }
+
+// if ($height == null) {
+//   echo '';
+// } else {
+//   $judge_height = $height > 150? 'upper150' : 'under150';
+//   echo $judge_height;
+// }
+
+class Check {
+  public $height = null;
+  public $weight = null;
+  public $pressure = null;
+
+  function  __construct($a,$b,$c)
+  {
+    $this->height = $a;
+    $this->weight = $b;
+    $this->pressure = $c;
+  }
+
+  public function show() {
+    echo $this->height;
+    echo '<br>';
+    echo $this->weight;
+    echo '<br>';
+    echo $this->pressure;
+    echo '<br>';
+  }
+
+  public function show_bmi() {
+    echo $this->weight / ( ($this->height/100)^2);
+    echo '<br>';
+  }
 }
+
+
+
 
 ?>
 
