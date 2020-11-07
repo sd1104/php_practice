@@ -28,7 +28,12 @@
 //     var_dump($fruit);
 //   echo '</pre>';
 // }
-
+// foreach($boy as $key => $value){
+//   echo '<pre>';
+//     var_dump($key);
+//     var_dump($value);
+//   echo '</pre>';
+// }
 
 
 // }
