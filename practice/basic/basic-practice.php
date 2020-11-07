@@ -35,7 +35,28 @@
 //   echo '</pre>';
 // }
 
-
+// $boys = [
+//   'John' => [
+//     'age' => 20,
+//     'hobby' => 'fishing'
+//   ],
+//   'Mike' => [
+//     'age' => 30,
+//     'hobby' => 'walking'
+//   ],
+//   'Dera' => [
+//     'age' => 40,
+//     'hobby' => 'running'
+//   ]
+// ];
+// foreach($boys as $name_key => $boy){
+//   foreach($boy as $key => $value){
+//     echo '<pre>';
+//       var_dump($name_key);
+//       var_dump($key);
+//       var_dump($value);
+//     echo '</pre>';
+//   }
 // }
 
 
