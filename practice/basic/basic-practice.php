@@ -12,7 +12,15 @@
 //   var_dump($fruits[1]);
 // echo '</pre>';
 
-
+// $boy = [
+//   'name' => 'John',
+//   'age' => 20,
+//   'hobby' => 'fishing'
+// ];
+// echo '<pre>';
+//   var_dump($boy);
+//   var_dump($boy['name']);
+// echo '</pre>';
 
 
 
