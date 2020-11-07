@@ -59,7 +59,17 @@
 //   }
 // }
 
+var_dump($height);
 
+if(empty($height)) {
+  echo '';
+} else if($height <= 100){
+  echo '1';
+} else if ($height > 100 && $height < 180) {
+  echo '2';
+} else if ($height >= 180){
+  echo '3';
+}
 
 
 ?>
