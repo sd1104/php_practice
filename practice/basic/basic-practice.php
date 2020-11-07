@@ -22,7 +22,12 @@
 //   var_dump($boy['name']);
 // echo '</pre>';
 
-
+// foreach($fruits as $index => $fruit){
+//   echo '<pre>';
+//     var_dump($index);
+//     var_dump($fruit);
+//   echo '</pre>';
+// }
 
 
 
