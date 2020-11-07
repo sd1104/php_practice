@@ -1,8 +1,8 @@
 <?php
 $height = $_POST['height'];
 $weight = $_POST['weight'];
-$b_pressure = $_POST['pressure'];
-$colesterole_value = $_POST['colestrole'];
+$pressure = $_POST['pressure'];
+$colestrole = $_POST['colestrole'];
 
 // $fruits = ['apple', 'oraeg', 'grape'];
 // $fruits[1] = 'melon';
@@ -130,7 +130,38 @@ class Check {
   }
 }
 
+class Blood extends Check {
+  public function blood_check() {
+    if($this->pressure == null) return;
+      // echo 'You need to input pressure.';
+    $blood_check = $this->pressure > 120? 'hight' : 'OK';
+    echo $blood_check;
+    echo '<br>';
+  }
+}
 
+class Colestrole extends Check {
+  public $colestrole = null;
+
+  function __construct($d)
+  {
+    $this->colestrole = $d;
+  }
+
+  public function c_check() {
+    if ($this->colestrole == null) return;
+      // echo 'You need input your colestrole.';
+    $c_check = $this->colestrole > 100? 'high' : 'OK';
+    echo $c_check;
+  }
+}
+
+$john = new Blood($height, $weight, $pressure);
+$john->show();
+$john->blood_check();
+
+$mike = new Colestrole($height, $weight, $pressure, $colestrole);
+$mike->c_check();
 
 
 ?>
