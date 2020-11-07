@@ -4,7 +4,13 @@
 // $b_pressure = $_POST['pressure'];
 // $colesterole_value = $_POST['colestrole'];
 
-
+// $fruits = ['apple', 'oraeg', 'grape'];
+// $fruits[1] = 'melon';
+// $fruits[] = 'peach';
+// echo '<pre>';
+//   var_dump($fruits);
+//   var_dump($fruits[1]);
+// echo '</pre>';
 
 
 
