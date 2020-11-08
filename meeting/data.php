@@ -15,16 +15,15 @@ $children = [
   ['id' => 12,'name' => '横田 早葉子', 'wish' => 'c', 'start' => 15, 'last' => 21, 'proposal' => null ],
 ];
 
-
 function make_proposal($children) {
   foreach($children as $child) {
-    $start = $children['start'];
-    $last = $children['last'];
+    $start = $child['start'];
+    $last = $child['last'];
     $child['proposal'] = rand($start, $last);
+    echo '<pre>';
+     var_dump($child);
+    echo '</pre>';
   }
-  echo '<pre>';
-    var_dump($children);
-  echo '</pre>';
 }
 
 make_proposal($children, $wish_category);
