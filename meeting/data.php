@@ -1,6 +1,5 @@
 <?php
 
-
 $children = [
   ['id' => 1,'name' => '横田 早葉子', 'wish' => 'a', 'start' => 1, 'last' => 7, 'proposal' => null ],
   ['id' => 2,'name' => '横田 早葉子', 'wish' => 'a', 'start' => 1, 'last' => 7, 'proposal' => null ],
@@ -15,6 +14,28 @@ $children = [
   ['id' => 11,'name' => '横田 早葉子', 'wish' => 'c', 'start' => 15, 'last' => 21, 'proposal' => null ],
   ['id' => 12,'name' => '横田 早葉子', 'wish' => 'c', 'start' => 15, 'last' => 21, 'proposal' => null ],
 ];
+
+$wish_category = [
+  'a' => [ 'start' => 1, 'last' => 7 ],
+  'b' => [ 'start' => 8, 'last' => 14 ],
+  'c' => [ 'start' => 15, 'last' => 21 ],
+  'd' => [ 'start' => 22, 'last' => 28 ],
+  'e' => [ 'start' => 29, 'last' => 35 ],
+  'f' => [ 'start' => 36, 'last' => 42 ],
+  'g' => [ 'start' => 43, 'last' => 49 ],
+  'h' => [ 'start' => 50, 'last' => 56 ],
+  'i' => [ 'start' => 56, 'last' => 63 ],
+  'j' => [ 'start' => 1, 'last' => 21 ],
+  'k' => [ 'start' => 22, 'last' => 42 ],
+  'l' => [ 'start' => 43, 'last' => 63 ],
+  'm' => [ 'start' => 1, 'last' => 14 ],
+  'n' => [ 'start' => 7, 'last' => 21 ],
+  'o' => [ 'start' => 22, 'last' => 35 ],
+  'p' => [ 'start' => 28, 'last' => 42 ],
+  'q' => [ 'start' => 43, 'last' => 56 ],
+  'r' => [ 'start' => 57, 'last' => 63 ],
+  's' => [ 'start' => 1, 'last' => 63 ]
+]
 
 // function start_time($data) {
 //   if (empty($data['wish']) ) {
