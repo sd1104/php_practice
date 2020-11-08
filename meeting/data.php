@@ -1,61 +1,75 @@
 <?php
 
 $children = [
-  ['id' => 1,'name' => '横田 早葉子', 'wish' => 'a', 'start' => 1, 'last' => 7, 'proposal' => null ],
-  ['id' => 2,'name' => '横田 早葉子', 'wish' => 'a', 'start' => 1, 'last' => 7, 'proposal' => null ],
-  ['id' => 3,'name' => '横田 早葉子', 'wish' => 'a', 'start' => 1, 'last' => 7, 'proposal' => null ],
-  ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'start' => 1, 'last' => 7, 'proposal' => null ],
-  ['id' => 5,'name' => '横田 早葉子', 'wish' => 'b', 'start' => 8, 'last' => 14, 'proposal' => null ],
-  ['id' => 6,'name' => '横田 早葉子', 'wish' => 'b', 'start' => 8, 'last' => 14, 'proposal' => null ],
-  ['id' => 7,'name' => '横田 早葉子', 'wish' => 'b', 'start' => 8, 'last' => 14, 'proposal' => null ],
-  ['id' => 8,'name' => '横田 早葉子', 'wish' => 'c', 'start' => 15, 'last' => 21, 'proposal' => null ],
-  ['id' => 9,'name' => '横田 早葉子', 'wish' => 'c', 'start' => 15, 'last' => 21, 'proposal' => null ],
-  ['id' => 10,'name' => '横田 早葉子', 'wish' => 'c', 'start' => 15, 'last' => 21, 'proposal' => null ],
-  ['id' => 11,'name' => '横田 早葉子', 'wish' => 'c', 'start' => 15, 'last' => 21, 'proposal' => null ],
-  ['id' => 12,'name' => '横田 早葉子', 'wish' => 'c', 'start' => 15, 'last' => 21, 'proposal' => null ],
+  ['id' => 1,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
+  ['id' => 2,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
+  ['id' => 3,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
+  ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
+  ['id' => 5,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
+  ['id' => 6,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
+  ['id' => 7,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
+  ['id' => 8,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 9,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 10,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 11,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 12,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
 ];
+
+// foreach($children as $child) {
+//   echo $child['id'] . ',';
+// }
+
+// $wish_category = [
+//   'a' => [ 'min' => 1, 'max' => 7 ],
+//   'b' => [ 'min' => 8, 'max' => 14 ],
+//   'c' => [ 'min' => 15, 'max' => 21 ],
+//   'd' => [ 'min' => 22, 'max' => 28 ],
+//   'e' => [ 'min' => 29, 'max' => 35 ],
+//   'f' => [ 'min' => 36, 'max' => 42 ],
+//   'g' => [ 'min' => 43, 'max' => 49 ],
+//   'h' => [ 'min' => 50, 'max' => 56 ],
+//   'i' => [ 'min' => 56, 'max' => 63 ],
+//   'j' => [ 'min' => 1, 'max' => 21 ],
+//   'k' => [ 'min' => 22, 'max' => 42 ],
+//   'l' => [ 'min' => 43, 'max' => 63 ],
+//   'm' => [ 'min' => 1, 'max' => 14 ],
+//   'n' => [ 'min' => 7, 'max' => 21 ],
+//   'o' => [ 'min' => 22, 'max' => 35 ],
+//   'p' => [ 'min' => 28, 'max' => 42 ],
+//   'q' => [ 'min' => 43, 'max' => 56 ],
+//   'r' => [ 'min' => 57, 'max' => 63 ],
+//   's' => [ 'min' => 1, 'max' => 63 ]
+// ];
 
 function make_proposal($children) {
   foreach($children as $child) {
-    $start = $child['start'];
-    $last = $child['last'];
-    $child['proposal'] = rand($start, $last);
-    echo '<pre>';
-     var_dump($child);
-    echo '</pre>';
+    if(!isset($rands)) {
+      $rands = [];
+    }
+    $min = $child['min'];
+    $max = $child['max'];
+
+    for($i = $min; $i < $max; $i++) {
+      while(true) {
+        $tmp = rand($min, $max);
+        if( !in_array($tmp, $rands)) {
+          $rands[0] = $tmp;
+          $child['proposal'] = $tmp;
+        break;
+        }
+      }
+    }
+    echo $child['proposal'] .',';
   }
 }
-
-make_proposal($children, $wish_category);
-
+make_proposal($children);
 
 
-// $wish_category = [
-//   'a' => [ 'start' => 1, 'last' => 7 ],
-//   'b' => [ 'start' => 8, 'last' => 14 ],
-//   'c' => [ 'start' => 15, 'last' => 21 ],
-//   'd' => [ 'start' => 22, 'last' => 28 ],
-//   'e' => [ 'start' => 29, 'last' => 35 ],
-//   'f' => [ 'start' => 36, 'last' => 42 ],
-//   'g' => [ 'start' => 43, 'last' => 49 ],
-//   'h' => [ 'start' => 50, 'last' => 56 ],
-//   'i' => [ 'start' => 56, 'last' => 63 ],
-//   'j' => [ 'start' => 1, 'last' => 21 ],
-//   'k' => [ 'start' => 22, 'last' => 42 ],
-//   'l' => [ 'start' => 43, 'last' => 63 ],
-//   'm' => [ 'start' => 1, 'last' => 14 ],
-//   'n' => [ 'start' => 7, 'last' => 21 ],
-//   'o' => [ 'start' => 22, 'last' => 35 ],
-//   'p' => [ 'start' => 28, 'last' => 42 ],
-//   'q' => [ 'start' => 43, 'last' => 56 ],
-//   'r' => [ 'start' => 57, 'last' => 63 ],
-//   's' => [ 'start' => 1, 'last' => 63 ]
-// ];
 
-// function start_time($data) {
+// function min_time($data) {
 //   if (empty($data['wish']) ) {
-//     $children['start'] = $data['start'];
-//     return $children['start'];
+//     $children['min'] = $data['min'];
+//     return $children['min'];
 //   }
 //   if (!empty($data['wish']) ) {
 //     $array_first_value = array_shift($data['wish']);
@@ -63,14 +77,14 @@ make_proposal($children, $wish_category);
 //   }
 // }
 
-// function last_time($data) {
+// function max_time($data) {
 //   if (empty($data['wish']) ) {
-//     $children['last'] = $data['last'];
-//     return $children['last'];
+//     $children['max'] = $data['max'];
+//     return $children['max'];
 //   }
 //   if (!empty($data['wish']) ) {
-//     $array_last_value = end($data['wish']);
-//     return $array_last_value;
+//     $array_max_value = end($data['wish']);
+//     return $array_max_value;
 //   }
 // }
 
@@ -79,8 +93,8 @@ make_proposal($children, $wish_category);
 //     'id' => 1,
 //     'name' => '横田 早葉子',
 //     'wish' => 'a',
-//     'start' => start_time($data['start']),
-//     'last' => last_time($data['last']),
+//     'min' => min_time($data['min']),
+//     'max' => max_time($data['max']),
 //     'proposal' => null,
 //   ]
 // ];
