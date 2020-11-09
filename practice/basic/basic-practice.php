@@ -24,7 +24,12 @@ foreach($boy as $key => $value) {
   echo '<br>';
 }
 
-
+// $num = 0;
+// for($i=0; $i < 10; $i++) {
+//   $num++;
+//   echo $num .'+' .($num+1) .'=' .($num+$num+1);
+//   echo '<br>';
+// }
 
 
 
