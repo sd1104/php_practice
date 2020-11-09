@@ -74,6 +74,25 @@ function make_proposal($children) {
       }
     }
     $child['proposal'] = $min;
+    $count = 0;
+    for($i = 0; $i < count($wish_nums); $i++) {
+      $minus = $wish_nums[($i+1)] - $wish_nums[($i)];
+      if( $minus === 1 ) {
+        $count++;
+        // echo $child['proposal'] .'がproposalとして代入されました。';
+        // echo '<br>';
+        // var_dump($wish_nums);
+        // echo '<br>';
+        // echo $wish_nums[($i+1)] .'が$wish_nums[($i+1)]として代入されました。';
+        // echo '<br>';
+        // echo $wish_nums[($i)] .'が$wish_nums[($i)]として代入されました。';
+      } else {
+      break;
+      }
+    }
+    if($count%3 === 0 && $count !== 0){
+      $count = 0;
+    }
     echo $child['proposal'] .',';
     echo '<br>';
   }
