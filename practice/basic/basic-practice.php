@@ -17,7 +17,12 @@ foreach($fruits as $fruit) {
   echo '<br>';
 }
 
-
+foreach($boy as $key => $value) {
+  echo $key;
+  echo ':';
+  echo $value;
+  echo '<br>';
+}
 
 
 
