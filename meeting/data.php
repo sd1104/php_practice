@@ -41,23 +41,37 @@ $children = [
 //   's' => [ 'min' => 1, 'max' => 63 ]
 // ];
 
+// function make_proposal($children) {
+//   $rands = [];
+//   foreach($children as $child) {
+//     $min = $child['min'];
+//     $max = $child['max'];
+//     for($i = $min; $i < $max; $i++) {
+//       while(true) {
+//         $tmp = rand($min, $max);
+//         if( !in_array($tmp, $rands)) {
+//           $child['proposal'] = $tmp;
+//         break;
+//         }
+//       }
+//     }
+//     array_push($rands, $child['proposal']);
+//   }
+// }
 function make_proposal($children) {
-  $rands = [];
+  $wish_nums = [];
   foreach($children as $child) {
     $min = $child['min'];
-    $max = $child['max'];
-    for($i = $min; $i < $max; $i++) {
-      while(true) {
-        $tmp = rand($min, $max);
-        if( !in_array($tmp, $rands)) {
-          $child['proposal'] = $tmp;
-        break;
-        }
+    while(true) {
+      if(!in_array($min, $wish_nums)){
+        array_push($wish_nums, $min);
+      break;
+      } else {
+        $min++;
       }
     }
-    // $rands[] = $child['proposal'];
-    array_push($rands, $child['proposal']);
-    echo $child['proposal'] .',';
+    $child['proposal'] = $min;
+    echo $child['proposal'];
   }
 }
 make_proposal($children);
