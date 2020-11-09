@@ -4,6 +4,23 @@ $weight = $_POST['weight'];
 $pressure = $_POST['pressure'];
 $colestrole = $_POST['colestrole'];
 
+$fruits = ['apple', 'orange', 'grape'];
+
+$boy = [
+  'name' => 'John',
+  'age' => 20,
+  'hobby' => 'fishing'
+];
+
+
+
+
+
+
+
+
+
+
 
 
 ?>
