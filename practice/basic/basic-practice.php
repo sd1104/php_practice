@@ -31,7 +31,14 @@ foreach($boy as $key => $value) {
 //   echo '<br>';
 // }
 
-
+// $num = 0;
+// $count = 0;
+// while($count < 10) {
+//   $num++;
+//   echo $num .'+' .($num+1) .'=' .($num+$num+1);
+//   echo '<br>';
+//   $count++;
+// }
 
 
 
