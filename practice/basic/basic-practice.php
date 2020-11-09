@@ -12,7 +12,10 @@ $boy = [
   'hobby' => 'fishing'
 ];
 
-
+foreach($fruits as $fruit) {
+  echo $fruit;
+  echo '<br>';
+}
 
 
 
