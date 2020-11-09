@@ -1,47 +1,33 @@
 <?php
-$height = $_POST['height'];
-$weight = $_POST['weight'];
-$pressure = $_POST['pressure'];
-$colestrole = $_POST['colestrole'];
 
-$fruits = ['apple', 'orange', 'grape'];
+$fruits = [1, 2, 3];
+$add_nums = [4, 5, 6, 7, 8, 9, 10];
+$arrays = [];
 
-$boy = [
-  'name' => 'John',
-  'age' => 20,
-  'hobby' => 'fishing'
-];
-
-foreach($fruits as $fruit) {
-  echo $fruit;
-  echo '<br>';
+foreach($add_nums as $num) {
+  while(true) {
+    if(!in_array($num, $array)){
+      array_push($array, $num);
+      array_push($fruits, $num);
+    break;
+    }
+  }
 }
 
-foreach($boy as $key => $value) {
-  echo $key;
-  echo ':';
-  echo $value;
-  echo '<br>';
-}
 
-// $num = 0;
-// for($i=0; $i < 10; $i++) {
-//   $num++;
-//   echo $num .'+' .($num+1) .'=' .($num+$num+1);
-//   echo '<br>';
+
+array_push($fruits, $tmp);
+var_dump($fruits);
+
+
+// function is_continuous_array($array)
+// {
+//     $range = range(min($array), min($array) + count($array) - 2);
+//     var_dump($range);
+//     return $range[count($range)] = ' ';
 // }
 
-// $num = 0;
-// $count = 0;
-// while($count < 10) {
-//   $num++;
-//   echo $num .'+' .($num+1) .'=' .($num+$num+1);
-//   echo '<br>';
-//   $count++;
-// }
-
-
-
+// var_dump(is_continuous_array([8, 6, 10, 7]));
 
 ?>
 
