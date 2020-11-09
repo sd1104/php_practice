@@ -42,9 +42,11 @@ ifとswitchのどちらでも作る。
 
 
 １$wish_num[]に$minの値が入っているかを確認。
-２
+２while(true)
 （$minがある場合）
-・$wish_num[]に($min+1)があるかを確認するを繰り返す
-↓
+$min++;
+
 （$minがない場合）
-$minを$child['proposal']に代入
+$minを$wish_nums代入
+break;
+３$child['proposal'] = $min;
