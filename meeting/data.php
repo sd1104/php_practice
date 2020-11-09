@@ -42,29 +42,25 @@ $children = [
 // ];
 
 function make_proposal($children) {
+  $rands = [];
   foreach($children as $child) {
-    if(!isset($rands)) {
-      $rands = [];
-    }
     $min = $child['min'];
     $max = $child['max'];
-
     for($i = $min; $i < $max; $i++) {
       while(true) {
         $tmp = rand($min, $max);
         if( !in_array($tmp, $rands)) {
-          $rands[0] = $tmp;
           $child['proposal'] = $tmp;
         break;
         }
       }
     }
+    // $rands[] = $child['proposal'];
+    array_push($rands, $child['proposal']);
     echo $child['proposal'] .',';
   }
 }
 make_proposal($children);
-
-
 
 // function min_time($data) {
 //   if (empty($data['wish']) ) {
