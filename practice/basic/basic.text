@@ -39,3 +39,12 @@ ifとswitchのどちらでも作る。
 ３）Colesteroleというクラスを作成する
 関数judge_colestroleという関数をセットする。
 (引数で値を渡す。150未満はlow、200以上はhigh、それ以外はmiddleと表示する。)
+
+
+１$wish_num[]に$minの値が入っているかを確認。
+２
+（$minがある場合）
+・$wish_num[]に($min+1)があるかを確認するを繰り返す
+↓
+（$minがない場合）
+$minを$child['proposal']に代入
