@@ -17,8 +17,7 @@ $children = [
   ['id' => 13,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
   ['id' => 14,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
   ['id' => 15,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
-  ['id' => 16,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
-  ['id' => 17,'name' => '横田 早葉子', 'wish' => 'd', 'min' => 15, 'max' => 21, 'proposal' => null ]
+  ['id' => 16,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ]
 ];
 
 // 連続○回コマが続いたら１コマ休憩を入れる
@@ -42,10 +41,6 @@ function make_proposal($children, $span_point) {
     }
     $child['proposal'] = $min;
 
-    echo '<br>';
-    echo '初期wish_numsは';
-      var_dump($wish_nums);
-    echo '<br>';
     // 指定の連続回数コマが入力されたら休憩が１コマ入れる。
     for($i=0; $i<count($wish_nums); $i++) {
       if(count($wish_nums)<$span_point+1) {
@@ -53,17 +48,8 @@ function make_proposal($children, $span_point) {
       }
       $array1 = array_slice($wish_nums, -$span_point, $span_point);
       $array2 = range((end($wish_nums)-($span_point-1)), end($wish_nums), 1);
-      echo 'array1は';
-        var_dump($array1);
-      echo '<br>';
-      echo 'array2は';
-        var_dump($array2);
-      echo '<br>';
       if($array1 === $array2) {
         $child['proposal'] = ($min+1);
-        echo '提案日は';
-          echo $child['proposal'];
-        echo '<br>';
         $wish_nums[] = $child['proposal'];
         $wish_nums[] = 0;
       break;
