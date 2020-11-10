@@ -5,7 +5,7 @@ $add_nums = [4, 5, 6, 7, 8, 9, 10];
 $arrays = [];
 
 
-$array = array_slice($add_nums, -3);
+$array = array_slice($add_nums, -3, 3);
 var_dump($array);
 
 // foreach($add_nums as $num) {
