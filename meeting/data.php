@@ -18,7 +18,7 @@ $children = [
   ['id' => 14,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
   ['id' => 15,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
   ['id' => 16,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
-  ['id' => 16,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 17,'name' => '横田 早葉子', 'wish' => 'd', 'min' => 15, 'max' => 21, 'proposal' => null ]
 ];
 
 // 連続○回コマが続いたら１コマ休憩を入れる
@@ -80,7 +80,7 @@ function make_proposal($children, $span_point) {
     // 希望範囲外に提案日が入力されていないかをチェック
     if($child['proposal'] > $child['max']) {
       echo $child['id'] .'は希望外に日時が設定されています。';
-      echo '希望日入力を再度ご確認ください。';
+      echo ($child['max']%7+6) .'か' .($child['max']%7+5) .'まで枠内の希望数を減らしてください。';
       echo '<br>';
     }
 
