@@ -1,102 +1,36 @@
 <?php
 
+// 希望テーブル
 $children = [
   ['id' => 1,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
   ['id' => 2,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
   ['id' => 3,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
   ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
-  ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
-  ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
-  ['id' => 5,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
-  ['id' => 6,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
+  ['id' => 5,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
+  ['id' => 6,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
   ['id' => 7,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
-  ['id' => 8,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
-  ['id' => 9,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
-  ['id' => 10,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
-  ['id' => 11,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 8,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
+  ['id' => 9,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
+  ['id' => 10,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
+  ['id' => 11,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
   ['id' => 12,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 13,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 14,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 15,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 16,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
+  ['id' => 16,'name' => '横田 早葉子', 'wish' => 'c', 'min' => 15, 'max' => 21, 'proposal' => null ],
 ];
 
-// foreach($children as $child) {
-//   echo $child['id'] . ',';
-// }
+// 連続○回コマが続いたら１コマ休憩を入れる
+$span_point = 3;
 
-// $wish_category = [
-//   'a' => [ 'min' => 1, 'max' => 7 ],
-//   'b' => [ 'min' => 8, 'max' => 14 ],
-//   'c' => [ 'min' => 15, 'max' => 21 ],
-//   'd' => [ 'min' => 22, 'max' => 28 ],
-//   'e' => [ 'min' => 29, 'max' => 35 ],
-//   'f' => [ 'min' => 36, 'max' => 42 ],
-//   'g' => [ 'min' => 43, 'max' => 49 ],
-//   'h' => [ 'min' => 50, 'max' => 56 ],
-//   'i' => [ 'min' => 56, 'max' => 63 ],
-//   'j' => [ 'min' => 1, 'max' => 21 ],
-//   'k' => [ 'min' => 22, 'max' => 42 ],
-//   'l' => [ 'min' => 43, 'max' => 63 ],
-//   'm' => [ 'min' => 1, 'max' => 14 ],
-//   'n' => [ 'min' => 7, 'max' => 21 ],
-//   'o' => [ 'min' => 22, 'max' => 35 ],
-//   'p' => [ 'min' => 28, 'max' => 42 ],
-//   'q' => [ 'min' => 43, 'max' => 56 ],
-//   'r' => [ 'min' => 57, 'max' => 63 ],
-//   's' => [ 'min' => 1, 'max' => 63 ]
-// ];
-
-// function make_proposal($children) {
-//   $rands = [];
-//   foreach($children as $child) {
-//     $min = $child['min'];
-//     $max = $child['max'];
-//     for($i = $min; $i < $max; $i++) {
-//       while(true) {
-//         $tmp = rand($min, $max);
-//         if( !in_array($tmp, $rands)) {
-//           $child['proposal'] = $tmp;
-//         break;
-//         }
-//       }
-//     }
-//     array_push($rands, $child['proposal']);
-//   }
-// }
-// function make_proposal($children) {
-//   $wish_nums = [];
-//   foreach($children as $child) {
-//     $min = $child['min'];
-//     while(true) {
-//       if(!in_array($min, $wish_nums)){
-//         array_push($wish_nums, $min);
-//       break;
-//       } else {
-//         $min++;
-//       }
-//     }
-//     $child['proposal'] = $min;
-//     $count = 0;
-//     for($i = 0; $i < count($wish_nums); $i++) {
-//       $minus = $wish_nums[($i+1)] - $wish_nums[($i)];
-//       if( $minus === 1 ) {
-//         $count++;
-//       } else {
-//       break;
-//       }
-//     }
-//     if($count%3 === 0 && $count !== 0) {
-//       $count = 0;
-//     }
-//    echo $child['proposal'] .',';
-//     echo '<br>';
-//   }
-//   // return $children;
-// }
-// make_proposal($children);
-function make_proposal($children) {
+// 希望に基づいて提案日時を入力するための関数
+function make_proposal($children, $span_point) {
   $wish_nums = [];
   $proposals = [];
   foreach($children as $child) {
 
-
+    // 希望範囲内で早い時間から順につめてコマに入れる
     $min = $child['min'];
     while(true) {
       if(!in_array($min, $wish_nums)){
@@ -108,39 +42,59 @@ function make_proposal($children) {
     }
     $child['proposal'] = $min;
 
-    // echo '最初のwish_numsは、';
-    // var_dump($wish_nums);
-    // echo '<br>';
-    $count = 0;
+    echo '<br>';
+    echo '初期wish_numsは';
+      var_dump($wish_nums);
+    echo '<br>';
+    // 指定の連続回数コマが入力されたら休憩が１コマ入れる。
     for($i=0; $i<count($wish_nums); $i++) {
-      if(count($wish_nums)<3) {
-        // echo '最初のif通過';
-        // echo '<br>';
+      if(count($wish_nums)<$span_point+1) {
       break;
       }
-      $array1 = array_slice($wish_nums, (-4-$i), 4);
-      $array2 = range((end($wish_nums)-3), end($wish_nums), 1);
+      $array1 = array_slice($wish_nums, -$span_point, $span_point);
+      $array2 = range((end($wish_nums)-($span_point-1)), end($wish_nums), 1);
+      echo 'array1は';
+        var_dump($array1);
+      echo '<br>';
+      echo 'array2は';
+        var_dump($array2);
+      echo '<br>';
       if($array1 === $array2) {
-        // echo 'count++通過';
-        // echo '<br>';
-        $count=4;
-      }
-      if($count === 4) {
         $child['proposal'] = ($min+1);
+        echo '提案日は';
+          echo $child['proposal'];
+        echo '<br>';
         $wish_nums[] = $child['proposal'];
         $wish_nums[] = 0;
-        $count = 0;
-        // echo 'count==4通過';
-        // echo '<br>';
+      break;
+      }
+      // 日の開始日前には休憩を入れない。
+      if(end($wish_nums) === 20 || end($wish_nums) === 41 || end($wish_nums) === 62) {
+        $wish_nums[] = 0;
+      break;
+      } else {
       break;
       }
     }
-    // echo '保存は';
-    // echo $child['proposal'];
-    // echo '<br>';
-    // echo '<br>';
+
+    // 希望範囲外に提案日が入力されていないかをチェック
+    if($child['proposal'] > $child['max']) {
+      echo $child['id'] .'は希望外に日時が設定されています。';
+      echo '希望日入力を再度ご確認ください。';
+      echo '<br>';
+    }
 
     $proposals[] = $child;
+  }
+
+  // 提案日の重複がないかをチェック
+  $check_arrays = [];
+  foreach($proposals as $proposal) {
+    if(in_array($proposal['proposal'], $check_arrays)) {
+      echo $proposal['id'] .'はいずれかと希望が重複しています。';
+      echo '<br>';
+    }
+    $check_arrays[] = $proposal['proposal'];
   }
   return $proposals;
 }
@@ -148,7 +102,7 @@ function make_proposal($children) {
 // echo '<pre>';
 // var_dump(make_proposal($children));
 // echo '</pre>';
-foreach(make_proposal(($children)) as $proposal) {
+foreach(make_proposal($children, $span_point) as $proposal) {
   echo $proposal['proposal'];
   echo '<br>';
 }
@@ -239,7 +193,27 @@ foreach(make_proposal(($children)) as $proposal) {
 // $r = [50,51,52,53,54,55,56,57,58,59,60,61,62,63];
 // $s = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63];
 
-
+// $wish_category = [
+//   'a' => [ 'min' => 1, 'max' => 7 ],
+//   'b' => [ 'min' => 8, 'max' => 14 ],
+//   'c' => [ 'min' => 15, 'max' => 21 ],
+//   'd' => [ 'min' => 22, 'max' => 28 ],
+//   'e' => [ 'min' => 29, 'max' => 35 ],
+//   'f' => [ 'min' => 36, 'max' => 42 ],
+//   'g' => [ 'min' => 43, 'max' => 49 ],
+//   'h' => [ 'min' => 50, 'max' => 56 ],
+//   'i' => [ 'min' => 56, 'max' => 63 ],
+//   'j' => [ 'min' => 1, 'max' => 21 ],
+//   'k' => [ 'min' => 22, 'max' => 42 ],
+//   'l' => [ 'min' => 43, 'max' => 63 ],
+//   'm' => [ 'min' => 1, 'max' => 14 ],
+//   'n' => [ 'min' => 7, 'max' => 21 ],
+//   'o' => [ 'min' => 22, 'max' => 35 ],
+//   'p' => [ 'min' => 28, 'max' => 42 ],
+//   'q' => [ 'min' => 43, 'max' => 56 ],
+//   'r' => [ 'min' => 57, 'max' => 63 ],
+//   's' => [ 'min' => 1, 'max' => 63 ]
+// ];
 
 ?>
 
