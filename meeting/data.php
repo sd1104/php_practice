@@ -7,7 +7,6 @@ $children = [
   ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
   ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
   ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
-  ['id' => 4,'name' => '横田 早葉子', 'wish' => 'a', 'min' => 1, 'max' => 7, 'proposal' => null ],
   ['id' => 5,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
   ['id' => 6,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
   ['id' => 7,'name' => '横田 早葉子', 'wish' => 'b', 'min' => 8, 'max' => 14, 'proposal' => null ],
@@ -94,6 +93,7 @@ $children = [
 // make_proposal($children);
 function make_proposal($children) {
   $wish_nums = [];
+  $proposals = [];
   foreach($children as $child) {
     $min = $child['min'];
     while(true) {
@@ -105,42 +105,51 @@ function make_proposal($children) {
       }
     }
     $child['proposal'] = $min;
+    // echo 'first proposal:';
+    // echo $child['proposal'];
+    // echo '<br>';
     $count = 0;
     for($i=0; $i<count($wish_nums); $i++) {
-      // echo 'fist $wish_nums:';
-      // var_dump($wish_nums);
-      // echo '<br>';
       if(count($wish_nums)<3) {
       break;
       }
-      $array1 = array_slice($wish_nums, -3);
+      $array1 = array_slice($wish_nums, (-3-$i), 3);
       $back = end($wish_nums);
       $start = $back - 2;
       $array2 = range($back, $start, 1);
-      $array3 = sort($array２);
-      echo '$last wish_nums:';
-      var_dump($wish_nums);
-      echo '<br>';
-      echo '末尾３要素:';
-      var_dump($array1);
-      echo '<br>';
-      echo '連続数';
-      var_dump($array2);
-      echo '<br>';
-      // if($check1 === $check2) {
-      //   $count += 1;
-      // }
-      // if($count === 3) {
-      //   echo 'hello';
-      // break;
-      // }
+        // echo '$last wish_nums:';
+        // var_dump($wish_nums);
+        // echo '<br>';
+        // echo '末尾３要素:';
+        // var_dump($array1);
+        // echo '<br>';
+        // echo '連続数';
+        // var_dump($array2);
+        // echo '<br>';
+      if(rsort($array1)) {
+        $count++;
+      }
+      // echo 'count:';
+      // echo $count;
+      // echo '<br>';
+      if($count === 4) {
+        $child['proposal'] = ($min+1);
+        $count = 0;
+      break;
+      }
     }
-
-
+    $proposals[] = $child;
   }
-  // return $children;
+  return $proposals;
 }
-make_proposal($children);
+// echo '<pre>';
+// var_dump(make_proposal($children));
+// echo '</pre>';
+foreach(make_proposal(($children)) as $proposal) {
+  echo $proposal['proposal'];
+  echo '<br>';
+}
+
 
 // function min_time($data) {
 //   if (empty($data['wish']) ) {
