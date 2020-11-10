@@ -84,10 +84,6 @@ function make_proposal($children, $span_point) {
   }
   return $proposals;
 }
-// make_proposal($children);
-// echo '<pre>';
-// var_dump(make_proposal($children));
-// echo '</pre>';
 foreach(make_proposal($children, $span_point) as $proposal) {
   echo $proposal['proposal'];
   echo '<br>';
