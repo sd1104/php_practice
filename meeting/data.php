@@ -61,6 +61,37 @@ $children = [
 //     array_push($rands, $child['proposal']);
 //   }
 // }
+// function make_proposal($children) {
+//   $wish_nums = [];
+//   foreach($children as $child) {
+//     $min = $child['min'];
+//     while(true) {
+//       if(!in_array($min, $wish_nums)){
+//         array_push($wish_nums, $min);
+//       break;
+//       } else {
+//         $min++;
+//       }
+//     }
+//     $child['proposal'] = $min;
+//     $count = 0;
+//     for($i = 0; $i < count($wish_nums); $i++) {
+//       $minus = $wish_nums[($i+1)] - $wish_nums[($i)];
+//       if( $minus === 1 ) {
+//         $count++;
+//       } else {
+//       break;
+//       }
+//     }
+//     if($count%3 === 0 && $count !== 0) {
+//       $count = 0;
+//     }
+//    echo $child['proposal'] .',';
+//     echo '<br>';
+//   }
+//   // return $children;
+// }
+// make_proposal($children);
 function make_proposal($children) {
   $wish_nums = [];
   foreach($children as $child) {
@@ -75,26 +106,37 @@ function make_proposal($children) {
     }
     $child['proposal'] = $min;
     $count = 0;
-    for($i = 0; $i < count($wish_nums); $i++) {
-      $minus = $wish_nums[($i+1)] - $wish_nums[($i)];
-      if( $minus === 1 ) {
-        $count++;
-        // echo $child['proposal'] .'がproposalとして代入されました。';
-        // echo '<br>';
-        // var_dump($wish_nums);
-        // echo '<br>';
-        // echo $wish_nums[($i+1)] .'が$wish_nums[($i+1)]として代入されました。';
-        // echo '<br>';
-        // echo $wish_nums[($i)] .'が$wish_nums[($i)]として代入されました。';
-      } else {
+    for($i=0; $i<count($wish_nums); $i++) {
+      // echo 'fist $wish_nums:';
+      // var_dump($wish_nums);
+      // echo '<br>';
+      if(count($wish_nums)<3) {
       break;
       }
+      $array1 = array_slice($wish_nums, -3);
+      $back = end($wish_nums);
+      $start = $back - 2;
+      $array2 = range($back, $start, 1);
+      $array3 = sort($array２);
+      echo '$last wish_nums:';
+      var_dump($wish_nums);
+      echo '<br>';
+      echo '末尾３要素:';
+      var_dump($array1);
+      echo '<br>';
+      echo '連続数';
+      var_dump($array2);
+      echo '<br>';
+      // if($check1 === $check2) {
+      //   $count += 1;
+      // }
+      // if($count === 3) {
+      //   echo 'hello';
+      // break;
+      // }
     }
-    if($count%3 === 0 && $count !== 0){
-      $count = 0;
-    }
-    echo $child['proposal'] .',';
-    echo '<br>';
+
+
   }
   // return $children;
 }
