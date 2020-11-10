@@ -95,6 +95,8 @@ function make_proposal($children) {
   $wish_nums = [];
   $proposals = [];
   foreach($children as $child) {
+
+
     $min = $child['min'];
     while(true) {
       if(!in_array($min, $wish_nums)){
@@ -105,43 +107,44 @@ function make_proposal($children) {
       }
     }
     $child['proposal'] = $min;
-    // echo 'first proposal:';
-    // echo $child['proposal'];
+
+    // echo '最初のwish_numsは、';
+    // var_dump($wish_nums);
     // echo '<br>';
     $count = 0;
     for($i=0; $i<count($wish_nums); $i++) {
       if(count($wish_nums)<3) {
+        // echo '最初のif通過';
+        // echo '<br>';
       break;
       }
-      $array1 = array_slice($wish_nums, (-3-$i), 3);
-      $back = end($wish_nums);
-      $start = $back - 2;
-      $array2 = range($back, $start, 1);
-        // echo '$last wish_nums:';
-        // var_dump($wish_nums);
+      $array1 = array_slice($wish_nums, (-4-$i), 4);
+      $array2 = range((end($wish_nums)-3), end($wish_nums), 1);
+      if($array1 === $array2) {
+        // echo 'count++通過';
         // echo '<br>';
-        // echo '末尾３要素:';
-        // var_dump($array1);
-        // echo '<br>';
-        // echo '連続数';
-        // var_dump($array2);
-        // echo '<br>';
-      if(rsort($array1)) {
-        $count++;
+        $count=4;
       }
-      // echo 'count:';
-      // echo $count;
-      // echo '<br>';
       if($count === 4) {
         $child['proposal'] = ($min+1);
+        $wish_nums[] = $child['proposal'];
+        $wish_nums[] = 0;
         $count = 0;
+        // echo 'count==4通過';
+        // echo '<br>';
       break;
       }
     }
+    // echo '保存は';
+    // echo $child['proposal'];
+    // echo '<br>';
+    // echo '<br>';
+
     $proposals[] = $child;
   }
   return $proposals;
 }
+// make_proposal($children);
 // echo '<pre>';
 // var_dump(make_proposal($children));
 // echo '</pre>';
