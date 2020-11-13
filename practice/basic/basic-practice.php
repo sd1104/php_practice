@@ -1,12 +1,15 @@
 <?php
 
-$fruits = [1, 2, 3];
-$add_nums = [4, 5, 6, 7, 8, 9, 10];
-$arrays = [];
+$fruits = ['apple', 'orange', 'grape'];
+$fruits[1] = 'melon';
+$fruits[] = 'peach';
+array_push($fruits, 'grapefruit');
+array_pop($fruits);
 
 
-$array = array_slice($add_nums, -3, 3);
-var_dump($array);
+var_dump($fruits);
+echo '<br>';
+print($fruits);
 
 // foreach($add_nums as $num) {
 //   while(true) {
