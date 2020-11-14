@@ -33,9 +33,16 @@ class Check {
 
 }
 
-$check = new Check($height, $weight, $pressure);
-$check->show_data();
-$check->show_bmi();
+class Blood extends Check {
+  function blood_check(){
+    $judge = $this->pressure > 100? 'high' : 'low';
+    echo $judge;
+    echo '<br>';
+  }
+}
+
+$blood = new Blood($height, $weight, $pressure);
+$blood->blood_check();
 
 
 ?>
