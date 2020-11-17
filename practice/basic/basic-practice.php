@@ -14,10 +14,15 @@ $boys = [
     'hobby' => 'fishing'
   ],
   'Mike' => [
-    'age => 21',
+    'age' => 21,
     'hobby' => 'singing'
   ]
   ];
+
+  // foreach($fruits as $index => $fruit) {
+  //   echo $index .',' .$fruit;
+  //   echo '<br>';
+  // }
 
 
 ?>
