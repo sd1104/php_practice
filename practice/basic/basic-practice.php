@@ -8,6 +8,16 @@ array_push($fruits, 'pine');
 array_shift($fruits);
 array_pop($fruits);
 
-var_dump($fruits);
+$boys = [
+  'John' => [
+    'age' => 20,
+    'hobby' => 'fishing'
+  ],
+  'Mike' => [
+    'age => 21',
+    'hobby' => 'singing'
+  ]
+  ];
+
 
 ?>
