@@ -24,10 +24,17 @@ $boys = [
   //   echo '<br>';
   // }
 
-  foreach($boys as $key1 => $name) {
-    foreach($name as $key2 => $value) {
-      echo $key1 .';' .$key2 .'is' .$value;
-      echo '<br>';
-    }
+  // foreach($boys as $key1 => $name) {
+  //   foreach($name as $key2 => $value) {
+  //     echo $key1 .';' .$key2 .'is' .$value;
+  //     echo '<br>';
+  //   }
+  // }
+
+  $num = 0;
+  for($i = 0; $i<10; $i++) {
+    $num = ($i+2) + ($i+1);
   }
+  echo $num;
+
 ?>
