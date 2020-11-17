@@ -47,7 +47,8 @@ $boys = [
     echo 'Others';
   }
 
-
+  $judge = $fruits[3] === 'melon'? 'Melon' : 'Others';
+  echo $judge;
 
 
 
