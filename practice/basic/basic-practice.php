@@ -24,5 +24,10 @@ $boys = [
   //   echo '<br>';
   // }
 
-
+  foreach($boys as $key1 => $name) {
+    foreach($name as $key2 => $value) {
+      echo $key1 .';' .$key2 .'is' .$value;
+      echo '<br>';
+    }
+  }
 ?>
