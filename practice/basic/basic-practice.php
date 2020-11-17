@@ -1,11 +1,11 @@
 <?php
 
 $fruits = ['apple', 'oragen', 'grape'];
-$fruits[1] = 'melon';
+$fruits[2] = 'melon';
 $fruits[] = 'peach';
 array_unshift($fruits, 'lemon');
 array_push($fruits, 'pine');
-array_shift($fruits);
+// array_shift($fruits);
 array_pop($fruits);
 
 $boys = [
@@ -32,11 +32,24 @@ $boys = [
   // }
 
 
-  $i = 0;
-  while($i<10) {
-    $num = ($i+2) + ($i+1);
-    $i++;
+  // $i = 0;
+  // while($i<10) {
+  //   $num = ($i+2) + ($i+1);
+  //   $i++;
+  // }
+  // echo $num;
+
+  if($fruits[0] === 'apple') {
+    echo 'Apple';
+  } else if($fruits[1] === 'orange') {
+    echo 'Orange';
+  } else {
+    echo 'Others';
   }
-  echo $num;
+
+
+
+
+
 
 ?>
