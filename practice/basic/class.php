@@ -33,7 +33,16 @@ class Check {
 }
 
 class Blood extends Check {
-
+  function blood_check() {
+    if(!$this->pressure) return;
+    if($this->pressure > 120) {
+      echo 'Hight';
+      echo '<br>';
+    } else {
+      echo 'Hight';
+      echo '<br>';
+    }
+  }
 }
 
 class Cole extends Check {
