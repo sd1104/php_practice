@@ -15,6 +15,15 @@ class Check {
     $this->weight = $weight;
     $this->pressure = $pressure;
   }
+
+  function show_data() {
+    echo $this->height;
+    echo '<br>';
+    echo $this->weight;
+    echo '<br>';
+    echo $this->pressure;
+    echo '<br>';
+  }
 }
 
 class Blood extends Check {
