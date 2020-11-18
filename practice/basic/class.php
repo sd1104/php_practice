@@ -8,6 +8,13 @@ class Check {
   public $height = null;
   public $weight = null;
   public $pressure = null;
+
+  function __construct($height, $weight, $pressure)
+  {
+    $this->height = $height;
+    $this->weight = $weight;
+    $this->pressure = $pressure;
+  }
 }
 
 class Blood extends Check {
@@ -16,6 +23,11 @@ class Blood extends Check {
 
 class Cole extends Check {
   public $colestrole = null;
+
+  function __construct($colestrole)
+  {
+    $this->colestrole = $colestrole;
+  }
 }
 
 
