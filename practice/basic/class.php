@@ -67,6 +67,16 @@ class Cole extends Check {
   }
 }
 
+$mike = new Cole($height, $weight, $pressure, $colestrole);
+$john = new Blood($height, $weight, $pressure);
+$john->show_data();
+$john->show_bmi();
+$john->blood_check();
+$mike->show_data();
+$mike->show_bmi();
+$mike->cole_check();
+
+
 
 ?>
 
