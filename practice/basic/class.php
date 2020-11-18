@@ -46,7 +46,7 @@ class Blood extends Check {
       echo 'Hight';
       echo '<br>';
     } else {
-      echo 'Hight';
+      echo 'Low';
       echo '<br>';
     }
   }
@@ -55,32 +55,32 @@ class Blood extends Check {
 class Cole extends Check {
   public $colestrole = null;
 
-  function __construct($colestrole)
-  {
-    $this->colestrole = $colestrole;
-  }
+  // function __construct($colestrole)
+  // {
+  //   $this->colestrole = $colestrole;
+  // }
 
-  public function cole_check(){
-    if(!$this->colestrole) return;
+  public function cole_check($colestrole){
+    if(!$colestrole) return;
     echo 'Your colestrole value is ';
-    if($this->colestrole > 200) {
+    if($colestrole > 200) {
       echo 'Hight';
       echo '<br>';
     }  else {
-      echo 'Hight';
+      echo 'Low';
       echo '<br>';
     }
   }
 }
 
-$mike = new Cole($height, $weight, $pressure, $colestrole);
+$mike = new Cole($height, $weight, $pressure);
 $john = new Blood($height, $weight, $pressure);
 $john->show_data();
 $john->show_bmi();
 $john->blood_check();
 $mike->show_data();
 $mike->show_bmi();
-$mike->cole_check();
+$mike->cole_check($colestrole);
 
 
 
