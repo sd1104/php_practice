@@ -16,7 +16,7 @@ class Check {
     $this->pressure = $pressure;
   }
 
-  function show_data() {
+  public function show_data() {
     echo $this->height;
     echo '<br>';
     echo $this->weight;
@@ -25,7 +25,7 @@ class Check {
     echo '<br>';
   }
 
-  function show_bmi() {
+  public function show_bmi() {
     $bmi = $this->weight / (($this->height/100)^2);
     echo $bmi;
     echo '<br>';
@@ -33,7 +33,8 @@ class Check {
 }
 
 class Blood extends Check {
-  function blood_check() {
+  public function blood_check() {
+    echo 'Your colestrole value is ';
     if(!$this->pressure) return;
     if($this->pressure > 120) {
       echo 'Hight';
@@ -51,6 +52,18 @@ class Cole extends Check {
   function __construct($colestrole)
   {
     $this->colestrole = $colestrole;
+  }
+
+  public function cole_check(){
+    echo 'Your colestrole value is ';
+    if(!$this->colestrole) return;
+    if($this->colestrole > 200) {
+      echo 'Hight';
+      echo '<br>';
+    }  else {
+      echo 'Hight';
+      echo '<br>';
+    }
   }
 }
 
