@@ -8,41 +8,15 @@ class Check {
   public $height = null;
   public $weight = null;
   public $pressure = null;
-
-  function __construct($a, $b, $c)
-  {
-    $this->height = $a;
-    $this->weight = $b;
-    $this->pressure = $c;
-  }
-
-  public function show_data(){
-    echo $this->height;
-    echo '<br>';
-    echo $this->weight;
-    echo '<br>';
-    echo $this->pressure;
-    echo '<br>';
-  }
-
-  public function show_bmi(){
-    $bmi = $this->weight / ( ($this->height/100)^2 );
-    echo $bmi;
-    echo '<br>';
-  }
-
 }
 
 class Blood extends Check {
-  function blood_check(){
-    $judge = $this->pressure > 100? 'high' : 'low';
-    echo $judge;
-    echo '<br>';
-  }
+
 }
 
-$blood = new Blood($height, $weight, $pressure);
-$blood->blood_check();
+class Cole extends Check {
+  public $colestrole = null;
+}
 
 
 ?>
