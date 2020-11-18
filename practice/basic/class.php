@@ -3,7 +3,7 @@
 $height = $_POST['height'];
 $weight = $_POST['weight'];
 $pressure = $_POST['pressure'];
-
+$colestrole = $_POST['colestrole'];
 class Check {
   public $height = null;
   public $weight = null;
@@ -22,7 +22,6 @@ class Check {
     echo $this->height;
     echo '<br>';
     echo 'Your weight is ';
-    echo '<br>';
     echo $this->weight;
     echo '<br>';
     echo 'Your pressure is ';
@@ -43,7 +42,7 @@ class Blood extends Check {
   public function blood_check() {
     if(!$this->pressure) return;
     echo 'Your blood pressure value is ';
-    if($this->pressure > 120) {
+    if($this->pressure > 150) {
       echo 'Hight';
       echo '<br>';
     } else {
