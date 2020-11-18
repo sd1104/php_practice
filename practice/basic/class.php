@@ -24,6 +24,12 @@ class Check {
     echo $this->pressure;
     echo '<br>';
   }
+
+  function show_bmi() {
+    $bmi = $this->weight / (($this->height/100)^2);
+    echo $bmi;
+    echo '<br>';
+  }
 }
 
 class Blood extends Check {
