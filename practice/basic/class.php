@@ -17,16 +17,23 @@ class Check {
   }
 
   public function show_data() {
+    if(!$this->height || !$this->weight || !$this->pressure) return;
+    echo 'Your height is ';
     echo $this->height;
+    echo '<br>';
+    echo 'Your weight is ';
     echo '<br>';
     echo $this->weight;
     echo '<br>';
+    echo 'Your pressure is ';
     echo $this->pressure;
     echo '<br>';
   }
 
   public function show_bmi() {
+    if(!$this->height || !$this->weight) return;
     $bmi = $this->weight / (($this->height/100)^2);
+    echo 'bmi is ';
     echo $bmi;
     echo '<br>';
   }
@@ -34,8 +41,8 @@ class Check {
 
 class Blood extends Check {
   public function blood_check() {
-    echo 'Your colestrole value is ';
     if(!$this->pressure) return;
+    echo 'Your blood pressure value is ';
     if($this->pressure > 120) {
       echo 'Hight';
       echo '<br>';
@@ -55,8 +62,8 @@ class Cole extends Check {
   }
 
   public function cole_check(){
-    echo 'Your colestrole value is ';
     if(!$this->colestrole) return;
+    echo 'Your colestrole value is ';
     if($this->colestrole > 200) {
       echo 'Hight';
       echo '<br>';
