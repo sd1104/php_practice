@@ -9,7 +9,19 @@ array_push($fruits, 'peach');
 array_pop($fruits);
 
 
-var_dump($fruits);
+$boys = [
+  'john' => [
+    'age' => 20,
+    'hobby' => 'fishing'
+  ],
+  'mike' => [
+    'age' => 21,
+    'hobby' => 'singing'
+  ]
+  ];
 
+// foreach($fruits as $f) {
+//   echo $f;
+// }
 
 ?>
