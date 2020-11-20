@@ -20,8 +20,8 @@ $boys = [
   ]
   ];
 
-// foreach($fruits as $f) {
-//   echo $f;
-// }
+foreach($fruits as $f) {
+  echo $f;
+}
 
 ?>
