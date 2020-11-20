@@ -22,6 +22,20 @@ $boys = [
 
 foreach($fruits as $f) {
   echo $f;
+  echo '<br>';
+};
+
+foreach($boys as $name => $info) {
+  foreach($info as $key => $i) {
+    echo $name;
+    echo '<br>';
+    echo $info;
+    echo '<br>';
+    echo $key;
+    echo '<br>';
+    echo $i;
+    echo '<br>';
+  }
 }
 
 ?>
