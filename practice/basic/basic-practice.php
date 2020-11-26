@@ -18,9 +18,15 @@ $boys = [
   ]
 ];
 
-foreach($fruits as $index => $fruit) {
-  echo $index .' ' .$fruit .' ';
-}
+// foreach($fruits as $index => $fruit) {
+//   echo $index .' ' .$fruit .' ';
+// }
 
+
+foreach($boys as $name => $info) {
+  foreach($info as $key => $value) {
+    echo $name .':' .$key .'=' .$value .'/';
+  }
+}
 
 ?>
