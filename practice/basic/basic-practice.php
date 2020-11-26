@@ -22,11 +22,10 @@ $boys = [
 //   echo $index .' ' .$fruit .' ';
 // }
 
-
-foreach($boys as $name => $info) {
-  foreach($info as $key => $value) {
-    echo $name .':' .$key .'=' .$value .'/';
-  }
+$num = 0;
+for($i=0; $i<10; $i++) {
+  $num = ($i+1) + ($i+2);
 }
+echo $num;
 
 ?>
