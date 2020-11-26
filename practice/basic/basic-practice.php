@@ -22,13 +22,15 @@ $boys = [
 //   echo $index .' ' .$fruit .' ';
 // }
 
-$num = 0;
-$i = 0;
-while ($i<10) {
-  $num = ($i+1) + ($i+2);
-  $i++;
+$lucky = rand(1,10);
+
+if($lucky === 10) {
+  echo 'lucky';
+} elseif($lucky === 5) {
+  echo 'unlucky';
+} else {
+  echo 'normal';
 }
 
-echo $num;
 
 ?>
