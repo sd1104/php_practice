@@ -32,5 +32,7 @@ if($lucky === 10) {
   echo 'normal';
 }
 
+$judge = $lucky === 10? 'lucky':'unlucky';
+echo $judge;
 
 ?>
