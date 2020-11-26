@@ -18,7 +18,9 @@ $boys = [
   ]
 ];
 
-
+foreach($fruits as $index => $fruit) {
+  echo $index .' ' .$fruit .' ';
+}
 
 
 ?>
