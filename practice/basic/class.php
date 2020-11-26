@@ -25,7 +25,7 @@ class Check {
 }
 
 $john = new Check($height, $weight, $pressure);
-
+$john->show_data();
 
 ?>
 
@@ -38,7 +38,7 @@ $john = new Check($height, $weight, $pressure);
 </head>
 <body>
 
-  <form method="POST" action="basic-practice.php">
+  <form method="POST" action="class.php">
     身長
     <input type="number" name="height" value="<?php $_POST['height'] ?>">
     <br>
