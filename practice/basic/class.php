@@ -1,5 +1,7 @@
 <?php
-
+$height = $_POST['height'];
+$weight = $_POST['weight'];
+$pressure = $_POST['pressure'];
 class Check {
   public $height = null;
   public $weight = null;
@@ -21,6 +23,8 @@ class Check {
     echo '<br>';
   }
 }
+
+$john = new Check($height, $weight, $pressure);
 
 
 ?>
