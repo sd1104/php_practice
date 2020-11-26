@@ -123,12 +123,12 @@
 class Assesment {
   public $heighth = null;
   public $weight = '';
-  public $b_pressure = '';
+  public $pressure = '';
 
-  function __construct($heighth, $weight, $b_pressure) {
+  function __construct($heighth, $weight, $pressure) {
     $this->heighth = $heighth;
     $this->weight = $weight;
-    $this->b_pressure = $b_pressure;
+    $this->pressure = $pressure;
   }
 
   public function show_data() {
@@ -136,7 +136,7 @@ class Assesment {
     echo '<br>';
     echo 'weight is ' . $this->weight;
     echo '<br>';
-    echo 'b_pressure is ' . $this->b_pressure;
+    echo 'pressure is ' . $this->pressure;
     echo '<br>';
   }
 
@@ -147,19 +147,19 @@ class Assesment {
 
 class Blood extends Assesment {
   public function show_blood_data() {
-    if($this->b_pressure < 800 && $this->b_pressure> 0) {
+    if($this->pressure < 800 && $this->pressure> 0) {
       echo 'low';
       echo '<br>';
     }
-    if($this->b_pressure > 1500) {
+    if($this->pressure > 1500) {
       echo 'high';
       echo '<br>';
     }
-    if ($this->b_pressure <=800 && $this->b_pressure >=1500) {
+    if ($this->pressure <=800 && $this->pressure >=1500) {
       echo 'middle';
       echo '<br>';
     }
-    if ($this->b_pressure <= 0) {
+    if ($this->pressure <= 0) {
       echo 'value is illegal.';
       echo '<br>';
     }
@@ -196,10 +196,10 @@ class Colestrole extends Assesment {
 
 $heighth = $_POST['height'];
 $weight = $_POST['weight'];
-$b_pressure = $_POST['b_pressure'];
+$pressure = $_POST['pressure'];
 
 
-$assess = new Assesment($heighth, $weight, $b_pressure);
+$assess = new Assesment($heighth, $weight, $pressure);
 echo 'assesment parts';
 echo '<br>';
 echo 'Your Data is below.';
@@ -211,7 +211,7 @@ echo '<br>';
 echo '<br>';
 
 
-$blood = new Blood($heighth, $weight, $b_pressure);
+$blood = new Blood($heighth, $weight, $pressure);
 echo 'blood pressure parts';
 echo '<br>';
 echo 'blood_pressure is ';
@@ -225,7 +225,7 @@ echo '<br>';
 echo '<br>';
 
 
-$colesterole = new Colestrole($heighth, $weight, $b_pressure);
+$colesterole = new Colestrole($heighth, $weight, $pressure);
 echo 'colestrole parts';
 echo '<br>';
 $colesterole_value = $_POST['colestrole'];
@@ -260,7 +260,7 @@ echo '<br>';
     <input type="number" name="weight" value="<?php $_POST['weight'] ?>">
     <br>
     血圧
-    <input type="number" name="b_pressure" value="<?php $_POST['b_pressure'] ?>">
+    <input type="number" name="pressure" value="<?php $_POST['pressure'] ?>">
     <br>
     コレステロール値
     <input type="number" name="colestrole" value="<?php $_POST['colestrole'] ?>">
